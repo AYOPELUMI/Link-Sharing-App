@@ -1,0 +1,23 @@
+.linkCtnr{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    header{
+        top: unset;
+        left: unset;
+        right: unset;
+        width: 100%;
+        display: flex;
+    }
+    .createLinkDiv{
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        label{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

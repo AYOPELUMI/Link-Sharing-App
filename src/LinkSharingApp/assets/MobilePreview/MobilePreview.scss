@@ -1,0 +1,105 @@
+.mobileView{
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+
+    .phoneOuterCase{
+        width: 300px;
+        height: 80%;
+        border: 1px solid #000;
+        border-radius: 58px;
+        padding: 8px;
+        
+        .phoneInnerCase{
+            height: 100%;
+            border: 1px solid #000;
+            border-radius: 58px;
+            position: relative;
+
+            .mobileFrontCamera{
+                position: absolute;
+                width: 50%;
+                height: 1.8em;
+                border-radius: 0 0 0.9em 0.9em;
+                right: 25%;
+                top: 0px;
+                padding-bottom: 0.3em;
+                box-sizing: border-box;
+                margin-top: -1px;
+                z-index: 999;
+                border: 1px solid black;
+                border-top: 2px solid white;
+            }
+
+            .mobileScreen{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                border-radius: inherit;
+                padding-top: 50px;
+                align-items: center;
+                gap: 25px;
+
+                .profilePic{
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    background: #aca1a1;
+                }
+                
+                .proflieCtnr{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                    align-items: center;
+
+                    .profileName{
+                        width: 60%;
+                        padding: 8px 8px;
+                        background: #aca1a1;
+                    }
+                    .profileUserName{
+                        width: 40%;
+                        padding: 4px 8px;
+                        background: #aca1a1;
+    
+                    }
+                }
+
+                .linkCtnr{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    align-items: center;
+
+                    button{
+                        width: 80%;
+                        padding: 8px 30px;
+                        border-radius: 8px;
+                        color: white;
+
+                        &:disabled{
+                            padding: 16px 30px;
+                            background: #726c6c65;
+                        }
+                    }
+
+                    .gitHubBtn{
+                        background: #2e2c2c;
+                    }
+                    .youTubeBtn{
+                        background: #fa0a0a;
+                    }
+                    .linkedInBtn{
+                        background: #2885ff;
+                    }
+
+                }
+            }
+        }
+    }
+}

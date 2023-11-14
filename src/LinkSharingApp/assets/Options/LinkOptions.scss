@@ -1,0 +1,28 @@
+.linkMainCtnr{
+    width: 100%;
+    position: relative;
+    height: fit-content;
+
+    .optionCtnr{
+        width: 100%;
+        height: fit-content;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        list-style: none;
+        cursor: pointer;
+    
+        li{
+            width: 100%;
+            text-align: center;
+            padding: 7px 10px;
+        }
+    
+    }
+
+    .linkBtn{
+        width: 100%;
+        padding: 12px 20px;
+    }
+}
