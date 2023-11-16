@@ -8,6 +8,7 @@
     border-bottom: 1px solid black;
     gap: 15px;
     background: white;
+    color: #000;
 
     .header{
         display: flex;
@@ -38,6 +39,7 @@
         }
         label{
             flex-direction: row;
+            color: #000;
             span{
                 width: 40%;
                 font-size: 12px;
