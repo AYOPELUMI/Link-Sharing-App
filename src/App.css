@@ -1,7 +1,10 @@
 #root {
   width: 100vw;
-  padding: 2rem;
+  padding: 20px 30px;
+  padding-bottom: 0;
   text-align: center;
+  position: relative;
+  height: 100vh;
 }
 
 .logo {

@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import "./MobilePreview.scss"
 import { Button } from '../Button/Button'
+import { UserContext } from '../profileDetails/ProfileDetails'
+import { RiArrowRightFill } from "react-icons/ri";
 
 export function MobilePreview(props) {
-    
 
+    function Capitalize(str){
+
+        return str.charAt(0).toLowerCase() + str.slice(1);
+    
+        }
+    
+    const {user, setUser} = useContext(UserContext)
+
+    let displayBtnArr =[]
+    let btnArr =user.linkArray
+    for (let i = 0; i < btnArr.length; i++) {
+        const element = btnArr[i];
+        console.log(element)
+        displayBtnArr.push(element)
+    } 
     return (
         <>
             <section className="mobileView">
@@ -21,11 +37,15 @@ export function MobilePreview(props) {
                                 <span className='profileUserName'></span>
                             </div>
                             <div className='linkCtnr'>
-                                <Button propsType="button" propsClassName="gitHubBtn" displayWord="GitHub"/>
-                                <Button propsType="button" propsClassName="youTubeBtn" displayWord="YouTube"/>
-                                <Button  propsType="button" propsClassName="linkedInBtn" displayWord="LinkedIn"/>
-                                <Button  propsType="button" propsDisabled={true}/>
-                                <Button  propsType="button" propsDisabled={true}/>
+                                {displayBtnArr.map((item, index) =>(
+                                    <Button 
+                                        type="button" 
+                                        key={item.value ? item.value+index+"Btn" : item.index} 
+                                        className={item.value ? Capitalize(item.value)+"Btn": null}
+                                        disabled ={item.value ? false:true}
+                                         displayWord={<>{item.icon} <span>{item.value}</span> <RiArrowRightFill /></>}
+                                    />
+                                ) )}
                             </div>
                         </div>
                     </div>

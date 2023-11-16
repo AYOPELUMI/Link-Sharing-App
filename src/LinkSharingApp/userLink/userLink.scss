@@ -1,8 +1,10 @@
 .createLinkContainer{
     width: 60%;
-    height: 100vh;
+    height: 100%;
+    overflow: scroll;
     display: flex;
     flex-direction: column;
+    border-bottom: 1px solid black;
     gap: 15px;
 
     span{
@@ -14,7 +16,7 @@
         }
     }
     .addNewLinkBtn{
-        width: 100%;
+        width: 90%;
         border: 1px solid #000;
         outline: none;
         padding: 8px 40px;

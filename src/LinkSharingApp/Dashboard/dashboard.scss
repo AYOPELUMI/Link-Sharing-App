@@ -3,10 +3,32 @@
     padding: 0;
 }
 .dashboardCtnr{
-
     width: 100%;
-    height: 100vh;
+    height: 75vh;
     padding-top: 80px;
     display: flex;
     gap: 15px;
+    padding-bottom: 30px;
+    overflow: scroll;
+}
+
+.footerDiv{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 25px 25px;
+    padding-bottom: 30px;
+
+    .saveBtn{
+        background: #623afc;
+        width: 90px;
+        padding: 7px 10px;
+        font-size: 14px;
+        color: white;
+    }
 }
