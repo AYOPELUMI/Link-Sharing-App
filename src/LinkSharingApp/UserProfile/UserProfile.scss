@@ -1,0 +1,50 @@
+.userProfileCtnr{
+    width: 60%;
+    height: 100%;
+    overflow: scroll;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid black;
+    gap: 15px;
+    background: white;
+
+    .header{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: start;
+    }
+
+    .userForm{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .labelImage{
+            height: 150px;
+            display: flex;
+            width: 100%;
+
+            .inputImage{
+                width: 150px;
+                height: 150px;
+                background-size: cover;
+                position: relative;
+                z-index: 3;
+                bottom: none;
+                outline: none;
+            }
+        }
+        label{
+            flex-direction: row;
+            span{
+                width: 40%;
+                font-size: 12px;
+            }
+            input{
+                width: 100%;
+            }
+        }
+    }
+}

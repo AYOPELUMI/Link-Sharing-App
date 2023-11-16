@@ -5,11 +5,10 @@
 .dashboardCtnr{
     width: 100%;
     height: 75vh;
-    padding-top: 80px;
+    padding-top: 130px;
     display: flex;
     gap: 15px;
-    padding-bottom: 30px;
-    overflow: scroll;
+    padding-bottom: 80px;
 }
 
 .footerDiv{
@@ -21,8 +20,8 @@
     display: flex;
     justify-content: end;
     align-items: center;
-    padding: 25px 25px;
-    padding-bottom: 30px;
+    padding: 15px 25px;
+    padding-bottom: 10px;
 
     .saveBtn{
         background: #623afc;

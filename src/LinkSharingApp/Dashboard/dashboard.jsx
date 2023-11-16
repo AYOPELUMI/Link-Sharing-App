@@ -3,6 +3,7 @@ import { Header } from '../assets/Header/header'
 import { UserLink } from '../userLink/userLink'
 import { MobilePreview } from '../assets/MobilePreview/MobilePreview'
 import { UserContext } from '../assets/profileDetails/ProfileDetails'
+import {UserProfile} from "../UserProfile/UserProfile"
 import "./dashboard.scss"
 import { Button } from '../assets/Button/Button'
 export function Dashboard(props) {
@@ -13,7 +14,11 @@ export function Dashboard(props) {
             <Header />
             <div className='dashboardCtnr'> 
             <MobilePreview/>
-                <UserLink />
+            {
+                user.showLink? 
+                <UserLink /> :
+                <UserProfile />
+            }
             </div>
             <div className='footerDiv'>
                 <Button type="button" className="saveBtn" displayWord="save" />

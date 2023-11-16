@@ -34,9 +34,17 @@
 		.labelInput{
 			position: relative;
 			display: flex;
+			height: fit-content;
 			flex-direction: column;
 			gap: 4px;
 			padding: 5px 10px;
+			.imagePreview{
+				width: 250px;
+				height: 250px;
+				border-radius: 125px;
+				position: absolute;
+				opacity: 0.6;
+			}
 			span{
 				cursor: pointer;
 				width: 100%;

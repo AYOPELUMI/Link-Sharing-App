@@ -18,7 +18,9 @@ export function Input (props) {
 		updateState,
 		index,
 		span,
+		accept,
 		handleChange,
+		spanBg,
 		errorMsg,
 		disabled
 	} = props
@@ -103,16 +105,19 @@ export function Input (props) {
 		}}>
 			<span>{labelFor}</span>
 			<div>		
-				<div 
+				{placeHolder ? <div 
 					className="placeHolder" 
 					style={style} 
 					onClick={handleDivClick}>
 					{placeHolder}
-				</div>
-				<input 
+				</div> : null}
+				<input style={{
+					backgroundImage : spanBg ? "URL(" + spanBg+")" : undefined
+				}}
 					type={showPassword ? "text" : type} 
-					required={required ? true :false }  
-					ref={inputRef} 
+					required={required}  
+					ref={inputRef}
+					accept={accept}
 					checked={checkedValue} 
 					onBlur={span ? null : handleBlur}  
 					onFocus={span ? null : handleOnFocus} 
@@ -126,7 +131,9 @@ export function Input (props) {
 				/>
 				{type == "password" ? showPassword ? <HiEye className="passWordIcon"  onClick={handleShowPassword}/> : <RiEyeCloseFill onClick={handleShowPassword} className="passWordIcon"/> : null}
 			</div>
-				{span ? span: null}
+				{spanBg ?<div  className="imagePreview" style={{
+					backgroundImage: "url("+spanBg+")"
+				}}></div> : null}
 		</label>
 	)
 }
