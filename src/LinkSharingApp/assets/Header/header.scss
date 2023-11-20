@@ -8,7 +8,8 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 10;
+    z-index: 100;
+    background: white;
     
     div{
         display: flex;
@@ -17,17 +18,20 @@ header{
 
         a{
             border: none; 
-            font-weight: bold;
+            font-weight: normal;
             padding: 4px 14px;
+            display: flex;
+            gap: 4px;
+            align-items: center;
 
             &:hover, &:active{
-                background: #9980ff66;
+                background: #9980ff33;
                 color: #623afc;
                 
             }
         }
         .active{
-            background: #9980ff66;
+            background: #9980ff33;
             color: #623afc;
             
         }

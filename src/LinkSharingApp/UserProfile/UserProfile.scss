@@ -2,6 +2,7 @@
     width: 60%;
     height: 100%;
     overflow: scroll;
+    overflow-x: hidden;
     padding: 10px 15px;
     display: flex;
     flex-direction: column;
@@ -46,6 +47,13 @@
             }
             input{
                 width: 100%;
+                border: 1px solid #726c6c65;
+
+                &:active, &:focus, &:hover{
+                    border: 1px solid #623afc;
+                    box-shadow: 1px 3px 9px 0px #8f8484;
+
+                }
             }
         }
     }

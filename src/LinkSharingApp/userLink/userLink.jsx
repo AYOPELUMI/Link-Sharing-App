@@ -37,7 +37,7 @@ for (let i = 0; i < userClone.linkArray.length; i++) {
     <>
         <div className='createLinkContainer'>
           <span>
-            <h3>Customixe your links</h3>
+            <h3>Customize your links</h3>
             <p>Add/edit/remove links below and share your profile with the world</p>
           </span>
           <Button 

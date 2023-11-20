@@ -1,6 +1,9 @@
 import React, {useState, useContext } from 'react'
 import "./header.scss"
 import { UserContext } from '../profileDetails/ProfileDetails'
+import {PiUserCircleFill} from "react-icons/pi"
+import { GoLink } from "react-icons/go";
+
 export function Header(props) {
     const [showLink, setShowLink] = useState(false)
     const {user, setUser} = useContext(UserContext)
@@ -25,8 +28,8 @@ export function Header(props) {
                 Logo
             </div>
             <div>
-                <a onClick={handleShowLink} className={showLink ? "active" : undefined}>Links</a>
-                <a onClick={handleShowProfile} className={showLink ? undefined : "active"}>Profile Details</a>
+                <a onClick={handleShowLink} className={showLink ? "active" : undefined}><GoLink />Links</a>
+                <a onClick={handleShowProfile} className={showLink ? undefined : "active"}><PiUserCircleFill />Profile Details</a>
             </div>
             <a>Preview</a>
         </header>
