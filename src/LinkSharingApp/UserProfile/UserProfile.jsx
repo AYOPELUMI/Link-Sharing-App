@@ -1,44 +1,67 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { UserContext } from '../assets/profileDetails/ProfileDetails'
 import { Input } from '../assets/Input/Input'
 import "./UserProfile.scss"
 
 export const UserProfile = () => {
-        const [data, setData] = useState({})
-        console.log({data})
+    const {user, setUser} = useContext(UserContext)
+    console.log({user})
     const onImageChange = event => {
         
           let reader = new FileReader();
           let file = event.target.files[0];
           console.log(event.target.files[0])
           reader.onloadend = () => {
-            setData({
-              ...data,
-              imagePreview: reader.result,
-              file: file
-            });
+			let userClone ={...user}
+               userClone.user.imagePreview  = reader.result,
+              userClone.user.file= file
+			  setUser(userClone)
           };
           reader.readAsDataURL(file);
         }
 
-      const submitForm = form => {
-        form.preventDefault();
-        // const formData = new FormData();
-        // formData.append("image", mydata.file);
-        // // for (var pair of formData.entries()) {
-        // //   console.log(pair[1]);
-        // // }
-        // const config = {
-        //   headers: {
-        //     "content-type": "multipart/form-data"
-        //   }
-        // };
-        // axios
-        //   .post("api/profile/upload", formData, config)
-        //   .then(response => {
-        //     alert("The file is successfully uploaded");
-        //   })
-        //   .catch(error => {});
-      }
+	const onFirstNameChange = () => {
+		let userClone ={...user}
+		console.log(event.target.value)
+		userClone.user.FirstName = event.target.value
+		setUser(userClone)
+		console.log(userClone.user.FirstName)
+	}
+
+	const onLastNameChange = () => {
+		let userClone ={...user}
+		console.log(event.target.value)
+		userClone.user.LastName = event.target.value
+		setUser(userClone)
+		console.log(userClone.user.LastName)
+	}
+	const onEmailChange = () => {
+		let userClone ={...user}
+		console.log(event.target.value)
+		userClone.user.Email = event.target.value
+		setUser(userClone)
+		console.log(userClone.user.Email)
+	}
+
+	const submitForm = form => {
+	form.preventDefault();
+	// const formUser = new FormUser();
+	// formUser.append("image", myuser.file);
+	// // for (var pair of formUser.entries()) {
+	// //   console.log(pair[1]);
+	// // }
+	// const config = {
+	//   headers: {
+	//     "content-type": "multipart/form-user"
+	//   }
+	// };
+	// axios
+	//   .post("api/profile/upload", formUser, config)
+	//   .then(response => {
+	//     alert("The file is successfully uploaded");
+	//   })
+	//   .catch(error => {});
+	}
 
 
   return (
@@ -56,22 +79,25 @@ export const UserProfile = () => {
             className="inputImage"
             type="file"
             labelFor="Profile Picture"
-            spanBg={data.imagePreview}
+            spanBg={user.user.imagePreview ? user.user.imagePreview : null}
             labelClassName="labelImage"
         />
         <Input
             labelFor="First Name"
             required={true}
             type="text"
+            handleChange={onFirstNameChange}
         />
         <Input
             type="text"
             labelFor="Last Name"
             required={true}
+            handleChange={onLastNameChange}
         />
         <Input
             type="email"
             labelFor="Email"
+			handleChange={onEmailChange}
         />
     </form>
     </div>

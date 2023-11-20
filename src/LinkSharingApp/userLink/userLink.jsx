@@ -4,6 +4,7 @@ import {RiAddFill} from "react-icons/ri"
 import { CreatedLink } from '../CreatedLink/CreatedLink'
 import { UserContext } from '../assets/profileDetails/ProfileDetails'
 import "./userLink.scss"
+import "./userLinkReponsive.scss"
 let listArrayClone =[]
 export function UserLink() {
   const [listArray, setListArray] = useState([])
@@ -43,7 +44,7 @@ for (let i = 0; i < userClone.linkArray.length; i++) {
           <Button 
             type="button"
             className="addNewLinkBtn"
-            displayWord= {<RiAddFill />}
+            displayWord= {<><RiAddFill />Add new Link</>}
             onClick={handleCreateLink}
           />
           {displayListArray}

@@ -1,0 +1,7 @@
+@import "../assets/mobileDesign.scss";
+
+.userProfileCtnr{
+    @include xs{
+        width: 100%;
+    }
+} 

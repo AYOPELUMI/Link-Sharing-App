@@ -25,7 +25,6 @@ export function Input (props) {
 		disabled
 	} = props
 
-	const [inputValue, setValue] = useState("")
 	const [checkedValue, setCheckedValue] = useState(false)
 	const [focusBoolean, setFocusBoolean] = useState(false)
 	const [divClickBoolean, setDivClickBoolean] = useState(false)
@@ -72,7 +71,7 @@ export function Input (props) {
 	}
 
 	const handleBlur = (e) => {
-		if (!inputValue) {
+		if (!value) {
 			setFocusBoolean(false)
 			// setDivClickBoolean(false)
 		}
@@ -82,17 +81,17 @@ export function Input (props) {
 			// setDivClickBoolean(true)
 		}
 	}
-	useEffect(() =>{
-		if (inputValue) {
-			setFocusBoolean(true)
-			setDivClickBoolean(true)
-		}
-		else{
-			setFocusBoolean(false)
-			setDivClickBoolean(false)
-		}
+	// useEffect(() =>{
+	// 	if (inputValue) {
+	// 		setFocusBoolean(true)
+	// 		setDivClickBoolean(true)
+	// 	}
+	// 	else{
+	// 		setFocusBoolean(false)
+	// 		setDivClickBoolean(false)
+	// 	}
 
-	},[inputValue])
+	// },[inputValue])
 	const handleShowPassword = () =>{
 		setShowPassword(!showPassword)
 		console.log("i pass here")

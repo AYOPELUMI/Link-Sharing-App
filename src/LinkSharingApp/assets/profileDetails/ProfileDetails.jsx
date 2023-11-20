@@ -2,12 +2,26 @@ import { useState, createContext, useMemo } from "react";
 import ReactDOM from "react-dom/client";
 
  export const UserContext = createContext({
-    user:{},
+    user:{
+        linkArray:[],
+        user:{
+            FirstName:"",
+            LastName:"",
+            Email:""
+        }
+    },
     setUser : () => {},
 });
 
 export const ProfileDetails = (props) => {
-    const [user, setUser] = useState({linkArray:[]})
+    const [user, setUser] = useState({
+        linkArray:[],
+        user:{
+            FirstName:"",
+            LastName:"",
+            Email:""
+        }
+    })
 
     const value = useMemo(() => (
         {user,setUser}),[user]

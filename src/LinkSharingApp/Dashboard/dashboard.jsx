@@ -5,6 +5,7 @@ import { MobilePreview } from '../assets/MobilePreview/MobilePreview'
 import { UserContext } from '../assets/profileDetails/ProfileDetails'
 import {UserProfile} from "../UserProfile/UserProfile"
 import "./dashboard.scss"
+import "./dashboardReponsive.scss"
 import { Button } from '../assets/Button/Button'
 export function Dashboard(props) {
     const{user} =useContext(UserContext)

@@ -1,0 +1,8 @@
+@import "../mobileDesign.scss";
+
+.mobileView{
+    @include xs{
+        display: none;
+
+    }
+}

@@ -1,0 +1,8 @@
+@import "../assets/mobileDesign.scss";
+
+.createLinkContainer{
+
+    @include xs{
+        width: 100%;
+    }
+}

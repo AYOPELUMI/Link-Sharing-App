@@ -44,10 +44,11 @@
                 gap: 25px;
 
                 .profilePic{
-                    width: 100px;
-                    height: 100px;
+                    width: 200px;
+                    height: 200px;
                     border-radius: 50%;
                     background: #aca1a1;
+                    background-size: cover;
                 }
                 
                 .proflieCtnr{

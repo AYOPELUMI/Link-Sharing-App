@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import "./MobilePreview.scss"
+import "./MobilePreviewReponsive.scss"
 import { Button } from '../Button/Button'
 import { UserContext } from '../profileDetails/ProfileDetails'
 import { RiArrowRightFill } from "react-icons/ri";
@@ -7,13 +8,11 @@ import { RiArrowRightFill } from "react-icons/ri";
 export function MobilePreview(props) {
 
     function Capitalize(str){
-
         return str.charAt(0).toLowerCase() + str.slice(1);
-    
-        }
+    }
     
     const {user, setUser} = useContext(UserContext)
-
+    console.log({user})
     let displayBtnArr =[]
     let btnArr =user.linkArray
     for (let i = 0; i < btnArr.length; i++) {
@@ -30,11 +29,13 @@ export function MobilePreview(props) {
 
                         </div>
                         <div className="mobileScreen">
-                            <div className='profilePic'>
+                            <div className='profilePic' style={{
+                                backgroundImage : user.user.imagePreview ? "url("+user.user.imagePreview+")" : undefined
+                            }}>
                             </div>
                            <div className='proflieCtnr'>
-                                <span className='profileName'></span>
-                                <span className='profileUserName'></span>
+                                <span className='profileName'>{user.user.FirstName} {user.user.LastName}</span>
+                                <span className='profileUserName'>{user.user.Email}</span>
                             </div>
                             <div className='linkCtnr'>
                                 {displayBtnArr.map((item, index) =>(
