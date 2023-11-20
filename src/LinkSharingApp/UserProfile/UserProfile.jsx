@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { UserContext } from '../assets/profileDetails/ProfileDetails'
 import { Input } from '../assets/Input/Input'
 import "./UserProfile.scss"
+import "./UserProfileReponsive.scss"
 
 export const UserProfile = () => {
     const {user, setUser} = useContext(UserContext)
