@@ -23,7 +23,7 @@ export const UserProfile = () => {
 
 	const onFirstNameChange = () => {
 		let userClone ={...user}
-		console.log(event.target.value)
+		// console.log(event.target.value)
 		userClone.user.FirstName = event.target.value
 		setUser(userClone)
 		console.log(userClone.user.FirstName)
