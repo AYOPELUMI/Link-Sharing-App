@@ -1,12 +1,11 @@
-@import "../MobileDesign.scss";
+@import "../mobileDesign.scss";
 header{
-
     @include xs{
         div{
-            gap: 3px;
+            gap: 13px;
             a{
                 gap: 1px;
-                padding: 2px 3px;
+                padding: 3px 5px;
             }
         }
         a{

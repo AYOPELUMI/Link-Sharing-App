@@ -8,18 +8,18 @@ import { UserContext } from '../assets/profileDetails/ProfileDetails';
 import "./CreatedLink.scss"
 export function CreatedLink(props) {
     const {
-        index
+        index,
+        displayIndex
     } = props
     console.log({index})
     const {user, setUser} = useContext(UserContext)
+    console.log({user})
     const removeCreatedLink = () => {
+        console.log({user})
         let userClone = {...user}
-
         let indexToDelete = userClone.linkArray.findIndex(obj => obj.index == index)
         console.log({indexToDelete})
-
         userClone.linkArray.splice(indexToDelete,1)
-
         setUser(userClone)
     }
 
@@ -27,7 +27,7 @@ export function CreatedLink(props) {
         <>
             <div className='linkCtnr'>
                 <header>
-                    <span> <IoReorderTwo/>#Link {index + 1}</span>
+                    <span> <IoReorderTwo/>#Link {displayIndex + 1}</span>
                     <Button type="button" className="removeBtn" onClick={removeCreatedLink} displayWord="Remove" />
                 </header>
                 <div className='createLinkDiv'>
@@ -35,6 +35,7 @@ export function CreatedLink(props) {
                     <Input 
                         labelFor={"Link"}
                         placeHolder={<GoLink />}
+                      
                         disabled={true}
                     />
                 </div>

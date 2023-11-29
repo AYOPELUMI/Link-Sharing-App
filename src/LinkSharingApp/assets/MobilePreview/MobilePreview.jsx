@@ -29,26 +29,29 @@ export function MobilePreview(props) {
 
                         </div>
                         <div className="mobileScreen">
-                            <div className='profilePic' style={{
-                                backgroundImage : user.user.imagePreview ? "url("+user.user.imagePreview+")" : undefined
-                            }}>
-                            </div>
-                           <div className='proflieCtnr'>
-                                <span className='profileName'>{user.user.FirstName} {user.user.LastName}</span>
-                                <span className='profileUserName'>{user.user.Email}</span>
-                            </div>
-                            <div className='linkCtnr'>
-                                {displayBtnArr.map((item, index) =>(
-                                    <Button 
-                                        type="button" 
-                                        key={item.value ? item.value+index+"Btn" : item.index} 
-                                        className={item.value ? Capitalize(item.value)+"Btn": null}
-                                        disabled ={item.value ? false:true}
-                                         displayWord={<>{item.icon} <span>{item.value}</span> <RiArrowRightFill /></>}
-                                    />
-                                ) )}
-                            </div>
+                            <div className='mainScreen'>
+                                <div className='profilePic' style={{
+                                    backgroundImage : user.profile.imagePreview ? "url("+user.profile.imagePreview+")" : undefined
+                                }}>
+                                </div>
+                            <div className='proflieCtnr'>
+                                    <span className='profileName'>{user.profile.FirstName} {user.profile.LastName}</span>
+                                    <span className='profileUserName'>{user.profile.Email}</span>
+                                </div>
+                                <div className='linkCtnr'>
+                                    {displayBtnArr.map((item, index) =>(
+                                        <Button 
+                                            type="button" 
+                                            key={item.value ? item.value+index+"Btn" : item.index} 
+                                            className={item.value ? Capitalize(item.value)+"Btn": null}
+                                            disabled ={item.value ? false:true}
+                                            displayWord={<>{item.icon} <span>{item.value}</span> <RiArrowRightFill /></>}
+                                        />
+                                    ) )}
+                                </div>
+                            </div> 
                         </div>
+
                     </div>
                 </div>
             </section>
