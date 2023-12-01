@@ -17,8 +17,13 @@ export function Dashboard(props) {
     }
     const updateUser = () => {
         const userClone ={...user}
-
-        userClone.profile =profile
+        if (profile) {
+            userClone.profile =profile
+           
+        }
+        if (link) {
+            
+        }
         setUser(userClone)
     }
 

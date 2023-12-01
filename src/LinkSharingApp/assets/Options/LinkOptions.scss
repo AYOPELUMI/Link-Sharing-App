@@ -43,6 +43,11 @@
                     z-index: 4;
                     padding: 4px 25px;
                     gap: 20px;
+                    transition: all 0.35s ease;
+                    &:hover, &:focus,&:active{
+                        background: #1c79f1;
+                        color: white;
+                    }
                 }
         }
     }

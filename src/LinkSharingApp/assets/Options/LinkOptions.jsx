@@ -16,10 +16,12 @@ export function LinkOptions(props) {
     const [index, setIndex] = useState(0)
     const [linkObject, setLinkObject] = useState({})
     const {user,setUser} = useContext(UserContext)
+    
     let userClone ={...user}
     console.log({user})
     console.log({value},{propsIndex})
     console.log({propsIndex})
+ 
     const listOptions =[
         {
             name:"GitHub",

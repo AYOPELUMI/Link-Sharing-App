@@ -22,7 +22,7 @@ export const UserProfile = (props) => {
 			  setProfile(profileClone)
           };
           reader.readAsDataURL(file);
-        }
+    }
 	const onFirstNameChange = () => {
 		let profileClone ={...profile}
 		// console.log(event.target.value)
