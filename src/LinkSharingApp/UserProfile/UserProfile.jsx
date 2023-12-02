@@ -1,51 +1,58 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../assets/profileDetails/ProfileDetails'
 import { Input } from '../assets/Input/Input'
+import {Button} from "../assets/Button/Button"
 import "./UserProfile.scss"
 import "./UserProfileReponsive.scss"
 
 export const UserProfile = () => {
+
+    const [data, setData] = useState({})
     const {user, setUser} = useContext(UserContext)
+  
     console.log({user})
-    const onImageChange = event => {
-        
-          let reader = new FileReader();
-          let file = event.target.files[0];
-          console.log(event.target.files[0])
-          reader.onloadend = () => {
-			let userClone ={...user}
-               userClone.user.imagePreview  = reader.result,
-              userClone.user.file= file
-			  setUser(userClone)
-          };
-          reader.readAsDataURL(file);
-        }
+  
+    const onIm    ageChange = event => {
+        let reader = new FileReader();
+        let file = event.target.files[0];
+        console.log(event.target.files[0])
+        reader.onloadend = () => {
+            let userClone ={...user}
+            dataClone.user.imagePreview  = reader.result,
+            dataClone.user.file= file
+			setData(dataClone)
+        };
+        reader.readAsDataURL(file);
+    }
 
 	const onFirstNameChange = () => {
-		let userClone ={...user}
+		let dataClone ={...data}
 		console.log(event.target.value)
-		userClone.user.FirstName = event.target.value
-		setUser(userClone)
-		console.log(userClone.user.FirstName)
+		dataClone.user.FirstName = event.target.value
+		setData(dataClone)
+		console.log(dataClone.user.FirstName)
 	}
 
 	const onLastNameChange = () => {
-		let userClone ={...user}
+		let dataClone ={...data}
 		console.log(event.target.value)
-		userClone.user.LastName = event.target.value
-		setUser(userClone)
-		console.log(userClone.user.LastName)
+		dataClone.LastName = event.target.value
+		setData(dataClone)
+		console.log(dataClone.user.LastName)
 	}
-	const onEmailChange = () => {
+	
+  const onEmailChange = () => {
 		let userClone ={...user}
 		console.log(event.target.value)
-		userClone.user.Email = event.target.value
-		setUser(userClone)
-		console.log(userClone.user.Email)
+		dataClone.user.Email = event.target.value
+		setData(dataClone)
+		console.log(dataClone.user.Email)
 	}
 
 	const submitForm = form => {
-	form.preventDefault();
+	   form.preventDefault();
+       console.log({form})
+
 	// const formUser = new FormUser();
 	// formUser.append("image", myuser.file);
 	// // for (var pair of formUser.entries()) {
@@ -98,8 +105,12 @@ export const UserProfile = () => {
         <Input
             type="email"
             labelFor="Email"
-			handleChange={onEmailChange}
+            handleChange={onEmailChange}
         />
+
+        <div className='footerDiv'>
+            <Button type="submit" className="saveBtn" displayWord="save" />
+        </div>
     </form>
     </div>
   )

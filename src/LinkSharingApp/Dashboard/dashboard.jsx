@@ -21,9 +21,6 @@ export function Dashboard(props) {
                 <UserProfile />
             }
             </div>
-            <div className='footerDiv'>
-                <Button type="button" className="saveBtn" displayWord="save" />
-            </div>
         </>
     )
 }

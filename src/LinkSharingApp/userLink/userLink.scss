@@ -1,12 +1,12 @@
 .createLinkContainer{
     width: 60%;
-    height: 100%;
     overflow: scroll;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid black;
     gap: 15px;
+    padding-bottom: 30px;
 
     span{
         text-align: left;
@@ -22,6 +22,9 @@
         outline: none;
         padding: 8px 40px;
         background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: #623afc;
 
     }
