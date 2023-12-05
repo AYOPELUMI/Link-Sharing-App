@@ -3,47 +3,59 @@ import "./LinkOptions.scss"
 import {    UserContext} from "../profileDetails/ProfileDetails"
 import { TbBrandGithubFilled } from "react-icons/tb";
 import {IoIosArrowDown, IoIosArrowUp} from "react-icons/io"
-import { RiFacebookFill, RiLinkedinFill, RiTwitterFill, RiWhatsappFill, RiYoutubeFill } from "react-icons/ri";
+import { RiFacebookFill, RiLinkedinFill, RiTwitterFill, RiWhatsappFill, RiYoutubeFill,  } from "react-icons/ri";
 import { Button } from '../Button/Button'
 
 export function LinkOptions(props) {
     const {
         propsIndex
     } = props
+    
     const [showOptions, setShowOptions] = useState(false)
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState(null);
     const [index, setIndex] = useState(0)
-    const [linkObject, setLinkObject] = useState([])
+    const [linkObject, setLinkObject] = useState({})
     const {user,setUser} = useContext(UserContext)
+    const [iconIndex, setIconIndex] = useState(0)
+    
     let userClone ={...user}
     console.log({user})
+    console.log({value},{propsIndex})
     console.log({propsIndex})
+ 
     const listOptions =[
         {
             name:"GitHub",
-            icon: <TbBrandGithubFilled />
+            icon: <TbBrandGithubFilled />,
+            link:"www.github.com/"
         },
         {
             name:"Facebook",
-            icon:<RiFacebookFill />
+            icon:<RiFacebookFill />,
+            link:"www.facebook.com/"
         },
         {
             name:"LinkedIn",
-            icon: <RiLinkedinFill />
+            icon: <RiLinkedinFill />,
+            link:"www.linkedin.com/"
         },
         {
             name:"Twitter",
-            icon: <RiTwitterFill />
+            icon: <RiTwitterFill />,
+            link:"www.twitter.com/"
         },
         {   
             name:"WhatsApp",
-            icon: <RiWhatsappFill />
+            icon: <RiWhatsappFill />,
+            link:"web.whatsapp.com/"
         },
         {
             name:"YouTube",
-            icon: <RiYoutubeFill />
+            icon: <RiYoutubeFill />,
+            link:"www.youtube.com/"
         }
-]
+    ]
+    console.log({listOptions})
 
 // useEffect(() => {
 //     let newIndex = userClone.linkArray.findIndex(obj => obj.valueIndex == index)
@@ -65,11 +77,24 @@ export function LinkOptions(props) {
         setShowOptions(!showOptions) 
     }
     const handleSelectValue = () => {
+        let newIndex = userClone.linkArray.findIndex(obj => obj.index == propsIndex)
+       let iconIndex =0 
 
-    let value =event.target.getAttribute("value")
-    let index = Number(event.target.getAttribute("index"))
-    let newIndex = userClone.linkArray.findIndex(obj => obj.index == propsIndex)
-    
+        for (var i = 0; i < listOptions.length; i++) {
+             if(userClone.linkArray[newIndex].value ==listOptions[i].value){
+
+                iconIndex = i
+                break;
+             }
+        }
+        console.log({newIndex})
+        console.log({iconIndex})
+        setIconIndex(iconIndex)
+        let value =event.target.getAttribute("value")
+        let index = Number(event.target.getAttribute("index"))
+      
+        
+        console.log({value})
         console.log({newIndex})
         setValue(value)
         setIndex(newIndex)
@@ -77,13 +102,16 @@ export function LinkOptions(props) {
         linkObjectClone.value = value
         linkObjectClone.valueIndex = index
         linkObjectClone.index =propsIndex
-        linkObjectClone.icon = listOptions[index].icon
+        // linkObjectClone.icon = listOptions[index].icon
+        linkObjectClone.link= listOptions[index].link
         setLinkObject(linkObjectClone)
     
         console.log({propsIndex})
         userClone.linkArray.splice(newIndex,1,linkObjectClone)
         setUser(userClone)
     }
+    console.log({user})
+
     return (
         <div className="linkMainCtnr" >
             <span>Plaform</span>
@@ -93,12 +121,12 @@ export function LinkOptions(props) {
                 value={value}
                 displayWord={value ?
                     <>
-                        {userClone.linkArray[index].icon}
+                        {listOptions[userClone.linkArray[index].valueIndex].icon}
                         <span>{userClone.linkArray[index].value}</span>
                     </> : 
                     <>
-                        {listOptions[index].icon}
-                        <span>{listOptions[index].name}</span>
+                        {listOptions[0].icon}
+                        <span>{listOptions[0].name}</span>
                     </>
                 }
                 children ={

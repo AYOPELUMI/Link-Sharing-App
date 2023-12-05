@@ -26,9 +26,6 @@ export function Input (props) {
 	} = props
 
 	const [checkedValue, setCheckedValue] = useState(false)
-	const [focusBoolean, setFocusBoolean] = useState(false)
-	const [divClickBoolean, setDivClickBoolean] = useState(false)
-	const inputRef = useRef(null);
 	const [showPassword, setShowPassword] = useState(false)
 	let style = {}
 
@@ -60,8 +57,8 @@ export function Input (props) {
 	// }
 
 	const handleOnFocus = (e) =>{
-		setFocusBoolean(true)
-		setDivClickBoolean(true)
+		// setFocusBoolean(true)
+		// setDivClickBoolean(true)
 	}
 	const handleDivClick =(e) => {
 		setDivClickBoolean(true)
@@ -71,15 +68,15 @@ export function Input (props) {
 	}
 
 	const handleBlur = (e) => {
-		if (!value) {
-			setFocusBoolean(false)
-			// setDivClickBoolean(false)
-		}
-		else{
-			setFocusBoolean(true)
-			updateState(inputValue)
-			// setDivClickBoolean(true)
-		}
+		// if (!value) {
+		// 	setFocusBoolean(false)
+		// 	// setDivClickBoolean(false)
+		// }
+		// else{
+		// 	setFocusBoolean(true)
+		// 	updateState(inputValue)
+		// 	// setDivClickBoolean(true)
+		// }
 	}
 	// useEffect(() =>{
 	// 	if (inputValue) {
@@ -114,8 +111,7 @@ export function Input (props) {
 					backgroundImage : spanBg ? "URL(" + spanBg+")" : undefined
 				}}
 					type={showPassword ? "text" : type} 
-					required={required}  
-					ref={inputRef}
+					required={required} 
 					accept={accept}
 					checked={checkedValue} 
 					onBlur={span ? null : handleBlur}  

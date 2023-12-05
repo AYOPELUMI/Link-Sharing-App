@@ -1,5 +1,6 @@
 .createLinkContainer{
     width: 60%;
+    height: 600px;
     overflow: scroll;
     overflow-x: hidden;
     display: flex;
@@ -12,8 +13,7 @@
         text-align: left;
         h3{
             font-size: 24px;
-            line-height: 24px
-            ;
+            line-height: 24px;
         }
     }
     .addNewLinkBtn{

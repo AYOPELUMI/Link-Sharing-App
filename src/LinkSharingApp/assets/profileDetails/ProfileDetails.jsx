@@ -16,11 +16,7 @@ import ReactDOM from "react-dom/client";
 export const ProfileDetails = (props) => {
     const [user, setUser] = useState({
         linkArray:[],
-        user:{
-            FirstName:"",
-            LastName:"",
-            Email:""
-        }
+        profile:{}
     })
 
     const value = useMemo(() => (

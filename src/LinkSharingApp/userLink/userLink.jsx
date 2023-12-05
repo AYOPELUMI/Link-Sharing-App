@@ -14,24 +14,23 @@ export function UserLink() {
   let userClone = {...user}
   let displayListArray =[]
 
- const handleCreateLink = () => {
-      event.preventDefault()
-      event.stopPropagation()
-      
-      console.log({user})
-      console.log(userClone.linkArray.length)
-      userClone.linkArray.push({"index":index})
-      setUser(userClone)
-      console.log({index})
-      listArrayClone.push(index+1)
-      setIndex(index +1)
- }
+  const handleCreateLink = () => {
+        event.preventDefault()
+        event.stopPropagation()
+        const userClone = {...user}
+        console.log({user})
+        console.log(user.linkArray.length)
+        user.linkArray.push({"index":index})
+        console.log({index})
+        listArrayClone.push(index+1)
+        console.log({userClone})
+        setUser(userClone)
+        setIndex(index +1)
+  }
 
-for (let i = 0; i < userClone.linkArray.length; i++) {
-
-    const element = <CreatedLink key={"link"+i+1} index={userClone.linkArray[i].index} />
+for (let i = 0; i < user.linkArray.length; i++) {
+    const element = <CreatedLink key={"link"+i+1} displayIndex={i} index={userClone.linkArray[i].index} />
     displayListArray.push(element)
-  
 }
 
   return (
