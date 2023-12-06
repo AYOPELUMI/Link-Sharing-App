@@ -71,17 +71,17 @@ export function LinkOptions(props) {
 
 
     useEffect(() => {
-if (userClone.linkArray.length != 0)
-{        let userClone = [...listArray]
+
+        let userClone = [...listArray]
         console.log({userClone})
         console.log({linkObject})
         let indexToUpdate = listArray.findIndex(obj => obj.index == propsIndex)
         console.log(listArray[indexToUpdate])
-        setLinkObject(listArray[indexToUpdate])}
+        setLinkObject(listArray[indexToUpdate])
 
     //     userClone.linkArray = userClone.linkArray.push(linkObject)
     //     setUser(userClone) 
-    },[user])
+    },[listArray])
     const handleShowOptions = () => {
         event.preventDefault()
         console.log({showOptions})

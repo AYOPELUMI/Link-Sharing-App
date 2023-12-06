@@ -25,6 +25,7 @@ export function CreatedLink(props) {
 
     let linkindex = listArray.findIndex(obj => obj.index == index)
     console.log(listArray[linkindex])
+    console.log(listArray[linkindex].value)
     
     const removeCreatedLink = () => {
     //     console.log({listArray})
@@ -55,7 +56,7 @@ export function CreatedLink(props) {
                     <Input 
                         labelFor={"Link"}
                         placeHolder={<GoLink />}
-                        value= {listArray[linkindex].value ? listArray[linkindex].link+user.profile.FirstName + user.profile.LastName : null}
+                        value= {listArray[linkindex].value != null && listArray[linkindex].value != undefined ? listArray[linkindex].link+user.profile.FirstName + user.profile.LastName : ""}
                         disabled={true}
                     />
                 </div>
