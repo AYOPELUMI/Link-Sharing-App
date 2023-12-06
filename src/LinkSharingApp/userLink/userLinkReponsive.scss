@@ -10,16 +10,16 @@
     }
     @include lt-sm{
         align-items: center;
-        gap: 25px;
         .addNewLinkBtn{
             margin-top: 14px;
+            width: 70%;
         }
         span{
             padding: 20px;
             text-align: center;
 
             p{
-                margin-top: 17px;
+                margin-top: 8px;
             }
         }
         header{
