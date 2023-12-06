@@ -6,6 +6,7 @@ import { GoLink } from "react-icons/go";
 import { IoReorderTwo } from "react-icons/io5";
 import { UserContext } from '../assets/profileDetails/ProfileDetails';
 import "./CreatedLink.scss"
+import "./CreatedLinkReponsive.scss"
 
 export function CreatedLink(props) {
     const {
@@ -42,7 +43,7 @@ export function CreatedLink(props) {
         <>
             <div className='linkCtnr'>
                 <header>
-                    <span> <IoReorderTwo/>#Link {displayIndex + 1}</span>
+                    <span> <IoReorderTwo/>Link #{displayIndex + 1}</span>
                     <Button type="button" className="removeBtn" onClick={removeCreatedLink} displayWord="Remove" />
                 </header>
                 <div className='createLinkDiv'>

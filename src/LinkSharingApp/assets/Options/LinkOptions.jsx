@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./LinkOptions.scss"
+import "./LinkOptionsReponsive.scss"
 import {    UserContext} from "../profileDetails/ProfileDetails"
 import { TbBrandGithubFilled } from "react-icons/tb";
 import {IoIosArrowDown, IoIosArrowUp} from "react-icons/io"

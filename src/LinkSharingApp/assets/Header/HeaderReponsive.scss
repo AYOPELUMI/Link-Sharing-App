@@ -12,4 +12,22 @@ header{
             padding: 5px 8px;
         }
     }
+
+    @include sm{
+        div{
+            a{
+                font-size: 12px;
+            }
+        }
+    }
+    @include lt-sm{
+        div{
+            a{
+                padding: 12px 20px;
+                p{
+                    display: none;
+                }
+            }
+        }
+    }
 }

@@ -2,4 +2,18 @@
 
 .dashboardCtnr{
     padding-top: 80px;
+
+    @include sm{
+        padding: 20px;
+        padding-top: 120px;
+    }
+
+}
+.footerDiv{
+    @include lt-sm {
+        padding-bottom: 30px;
+        .saveBtn{
+            width: 100%;
+        }
+    }
 }

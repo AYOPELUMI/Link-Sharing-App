@@ -1,0 +1,21 @@
+@import "../mobileDesign.scss";
+
+.linkMainCtnr{
+    @include lt-sm{
+        span{
+            padding: 1px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .selectBtn{
+            span{
+                margin-right: 100px;
+            }
+            svg{
+                font-size: 14px;
+                display: block;
+            }
+        }
+    }
+}
