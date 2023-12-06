@@ -17,9 +17,13 @@
         span{
             padding: 20px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
 
             p{
+                width: 80%;
                 margin-top: 8px;
+                align-self: center;
             }
         }
         header{
