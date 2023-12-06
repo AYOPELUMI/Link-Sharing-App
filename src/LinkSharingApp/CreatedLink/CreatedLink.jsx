@@ -10,31 +10,32 @@ import "./CreatedLink.scss"
 export function CreatedLink(props) {
     const {
         index,
-        displayIndex
+        displayIndex,
+        listArray,
+        DeleteIndex,
+        UpdatingIndex
     } = props
 
     console.log({index})
     const {user, setUser} = useContext(UserContext)
     const [linkObject, setLinkObject] = useState({});
-    console.log({user})
-    console.log({linkObject})
+    // console.log({user})
+    console.log({listArray})
 
-
-
+    let linkindex = listArray.findIndex(obj => obj.index == index)
+    console.log(listArray[linkindex])
+    
     const removeCreatedLink = () => {
-        console.log({user})
-        let userClone = {...user}
+    //     console.log({listArray})
+    //    let listArrayClone =[...listArray]
         // console.log({userClone})
         // console.log(JSON.stringify(user))
-        userClone = JSON.stringify(userClone)
-        console.log(userClone)
-        userClone = JSON.parse(userClone)
-        console.log({userClone})
-        let indexToDelete = userClone.linkArray.findIndex(obj => obj.index == index)
-        console.log({indexToDelete})
-        userClone.linkArray.splice(indexToDelete,1)
+        // userClone = JSON.stringify(userClone)
+        // console.log(userClone)
+        // userClone = JSON.parse(userClone)
+        // console.log({userClone})
 
-        setUser(userClone)
+        DeleteIndex(index)
     }
 
     return (
@@ -45,10 +46,15 @@ export function CreatedLink(props) {
                     <Button type="button" className="removeBtn" onClick={removeCreatedLink} displayWord="Remove" />
                 </header>
                 <div className='createLinkDiv'>
-                    <LinkOptions  propsIndex ={index}/>
+                    <LinkOptions  
+                        propsIndex ={index} 
+                        UpdatingIndex={UpdatingIndex} 
+                        listArray={listArray}
+                    />
                     <Input 
                         labelFor={"Link"}
                         placeHolder={<GoLink />}
+                        value= {listArray[linkindex].value ? listArray[linkindex].link+user.profile.FirstName + user.profile.LastName : null}
                         disabled={true}
                     />
                 </div>

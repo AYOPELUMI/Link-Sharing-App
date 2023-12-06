@@ -49,6 +49,7 @@ export function MobilePreview(props) {
     
     const {user, setUser} = useContext(UserContext)
     console.log({user})
+
     let displayBtnArr =[]
     let btnArr =user.linkArray
     for (let i = 0; i < btnArr.length; i++) {
@@ -56,6 +57,8 @@ export function MobilePreview(props) {
         console.log(element)
         displayBtnArr.push(element)
     } 
+
+
     return (
         <>
             <section className="mobileView">
@@ -76,12 +79,13 @@ export function MobilePreview(props) {
                                 </div>
                                 <div className='linkCtnr'>
                                     {displayBtnArr.map((item, index) =>(
+                                        
                                         <Button 
                                             type="button" 
                                             key={item.value ? item.value+index+"Btn" : item.index} 
                                             className={item.value ? Capitalize(item.value)+"Btn": null}
                                             disabled ={item.value ? false:true}
-                                            displayWord={item.valueIndex ? <>{listOptions[item.valueIndex].icon} <span>{item.value}</span> <RiArrowRightFill /></>:null}
+                                            displayWord={item.value ? <>{listOptions[item.valueIndex].icon} <span>{item.value}</span> <RiArrowRightFill /></>:null}
                                         />
                                     ) )}
                                 </div>

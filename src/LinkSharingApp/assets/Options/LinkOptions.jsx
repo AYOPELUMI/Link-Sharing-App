@@ -8,11 +8,13 @@ import { Button } from '../Button/Button'
 
 export function LinkOptions(props) {
     const {
-        propsIndex
+        propsIndex,
+      listArray,
+        UpdatingIndex
     } = props
     
     const [showOptions, setShowOptions] = useState(false)
-    const [value, setValue] = useState(null);
+    // const [value, setValue] = useState(null);
     const [index, setIndex] = useState(0)
     const [linkObject, setLinkObject] = useState({})
     const {user,setUser} = useContext(UserContext)
@@ -20,7 +22,10 @@ export function LinkOptions(props) {
     
     let userClone ={...user}
     console.log({user})
-    console.log({value},{propsIndex})
+    console.log({listArray})
+    console.log({linkObject})
+    // console.log({value},{propsIndex})
+    console.log({index})
     console.log({propsIndex})
  
     const listOptions =[
@@ -64,30 +69,39 @@ export function LinkOptions(props) {
 // }, [user])
 
 
-    // useEffect(() => {
-    //     let userClone = {...user}
-    //     console.log({userClone})
-    //     console.log({linkObject})
+    useEffect(() => {
+if (userClone.linkArray.length != 0)
+{        let userClone = [...listArray]
+        console.log({userClone})
+        console.log({linkObject})
+        let indexToUpdate = listArray.findIndex(obj => obj.index == propsIndex)
+        console.log(listArray[indexToUpdate])
+        setLinkObject(listArray[indexToUpdate])}
+
     //     userClone.linkArray = userClone.linkArray.push(linkObject)
     //     setUser(userClone) 
-    // },[linkObject])
+    },[user])
     const handleShowOptions = () => {
         event.preventDefault()
         console.log({showOptions})
         setShowOptions(!showOptions) 
     }
     const handleSelectValue = () => {
-        let newIndex = userClone.linkArray.findIndex(obj => obj.index == propsIndex)
-       let iconIndex =0 
+        event.preventDefault()
+        event.stopPropagation()
+        // let newIndex = listArray.findIndex(obj => obj.index == propsIndex)
+       let iconIndex = 0 
 
         for (var i = 0; i < listOptions.length; i++) {
-             if(userClone.linkArray[newIndex].value ==listOptions[i].value){
-
+            console.log({userClone})
+            console.log(listOptions[i])
+             if(linkObject.value ==listOptions[i].name){
+                console.log({i})
                 iconIndex = i
                 break;
              }
         }
-        console.log({newIndex})
+        // console.log({newIndex})
         console.log({iconIndex})
         setIconIndex(iconIndex)
         let value =event.target.getAttribute("value")
@@ -95,22 +109,21 @@ export function LinkOptions(props) {
       
         
         console.log({value})
-        console.log({newIndex})
-        setValue(value)
-        setIndex(newIndex)
-        let linkObjectClone ={...linkObject}
+        // console.log({newIndex})
+        // setValue(value)
+        // setIndex()
+        let linkObjectClone ={}
         linkObjectClone.value = value
         linkObjectClone.valueIndex = index
         linkObjectClone.index =propsIndex
         // linkObjectClone.icon = listOptions[index].icon
         linkObjectClone.link= listOptions[index].link
         setLinkObject(linkObjectClone)
-    
+        console.log({linkObjectClone})
         console.log({propsIndex})
-        userClone.linkArray.splice(newIndex,1,linkObjectClone)
-        setUser(userClone)
+        UpdatingIndex(propsIndex,linkObjectClone)
     }
-    console.log({user})
+    // console.log({user})
 
     return (
         <div className="linkMainCtnr" >
@@ -118,11 +131,11 @@ export function LinkOptions(props) {
             <Button 
                 className="selectBtn" 
                 onClick={handleShowOptions}
-                value={value}
-                displayWord={value ?
+                
+                displayWord={linkObject.value != undefined?
                     <>
-                        {listOptions[userClone.linkArray[index].valueIndex].icon}
-                        <span>{userClone.linkArray[index].value}</span>
+                        {linkObject.value != null ? listOptions[linkObject.valueIndex].icon : null}
+                        <span>{linkObject.value}</span>
                     </> : 
                     <>
                         {listOptions[0].icon}

@@ -10,10 +10,14 @@ import { Button } from '../assets/Button/Button'
 export function Dashboard(props) {
     const{user, setUser} =useContext(UserContext)
     const [profile, setProfile] = useState({});
+    const [link, setLink] = useState([]);
     console.log({user})
 
     const submitUserProfileDetails = (args) => {
         setProfile(args)
+    }
+    const submitUserLinkDetails = (args) => {
+        setLink(args)
     }
     const updateUser = () => {
         const userClone ={...user}
@@ -22,7 +26,7 @@ export function Dashboard(props) {
            
         }
         if (link) {
-            
+            userClone.linkArray = link
         }
         setUser(userClone)
     }
@@ -34,7 +38,7 @@ export function Dashboard(props) {
             <MobilePreview/>
             {
                 user.showLink? 
-                <UserLink /> :
+                <UserLink submitUserLinkDetails={submitUserLinkDetails}/> :
                 <UserProfile submitUserProfileDetails={submitUserProfileDetails}/>
             }
             </div>
