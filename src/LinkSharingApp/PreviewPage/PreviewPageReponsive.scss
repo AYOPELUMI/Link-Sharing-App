@@ -12,17 +12,22 @@
     @include xs{
         width: 100%;
         .topView{
-        
+            padding: 20px 25px;
             background: white;
+            flex: 1;
 
             button{
                 width: 120px;
             }
         }
         .bottomView{
+            flex: 9;
             .mobileScreen{
             margin-top: 0;
             box-shadow: none;
+            width: 200px;
+            height: 90%;
+            padding: 0;
             }
         }
     }
