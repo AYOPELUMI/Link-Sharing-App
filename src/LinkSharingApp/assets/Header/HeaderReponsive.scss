@@ -29,5 +29,14 @@ header{
                 }
             }
         }
+        a{
+            padding: 12px 20px;
+            svg{
+                display: block;
+            }
+            p{
+                display: none;
+            }
+        }
     }
 }

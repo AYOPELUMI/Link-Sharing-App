@@ -1,0 +1,29 @@
+@import "../assets/mobileDesign.scss";
+
+.previewPage{
+  
+    @include sm {
+        .bottomView{
+            .mobileScreen{
+                margin-top: -220px;
+            }
+        }
+    }
+    @include xs{
+        width: 100%;
+        .topView{
+        
+            background: white;
+
+            button{
+                width: 120px;
+            }
+        }
+        .bottomView{
+            .mobileScreen{
+            margin-top: 0;
+            box-shadow: none;
+            }
+        }
+    }
+}

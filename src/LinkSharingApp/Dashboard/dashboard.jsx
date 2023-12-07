@@ -7,6 +7,7 @@ import {UserProfile} from "../UserProfile/UserProfile"
 import "./dashboard.scss"
 import "./dashboardReponsive.scss"
 import { Button } from '../assets/Button/Button'
+import { PreviewPage } from '../PreviewPage/PreviewPage'
 export function Dashboard(props) {
     const{user, setUser} =useContext(UserContext)
     const [profile, setProfile] = useState({});
@@ -32,7 +33,9 @@ export function Dashboard(props) {
     }
 
     return (
-        <>
+        <>{
+            user.showPreviewPage ? <PreviewPage / >
+        :<>
             <Header />
             <div className='dashboardCtnr'> 
             <MobilePreview/>
@@ -43,8 +46,10 @@ export function Dashboard(props) {
             }
             </div>
             <div className='footerDiv'>
-                <Button type="button" className="saveBtn" displayWord="save" onClick={updateUser}/>
+                <Button type="button" className="saveBtn" displayWord="Save" onClick={updateUser}/>
             </div>
+        </>
+        }
         </>
     )
 }

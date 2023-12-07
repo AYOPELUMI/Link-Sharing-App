@@ -1,0 +1,140 @@
+.previewPage{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    .topView{
+    flex: 3;
+    display: flex;
+    background: #623afc;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding: 10px;
+
+    .btnCtnr{
+        width: 100%;
+        padding: 9px;
+        background: white;
+        height: fit-content;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+
+        button{
+            width: fit-content;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 6px;
+        }
+        .backBtn{
+            color: #623afc;
+            background: transparent;
+            border: 1px solid #623afc;
+        }
+        .shareBtn{
+            color: white;
+            background: #623afc;
+        }
+    }
+    }
+    .bottomView{
+        flex: 7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .mobileScreen{
+            margin-top: -100px;
+            padding: 20px;
+            height: 500px;
+            width: 300px;
+            box-shadow: 2px 2px 4px 2px #d5d5d7;
+            background: white;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+
+            .mainScreen{
+                display: flex;
+                flex-direction: column;
+                border-radius: inherit;
+                padding: 20px;
+                padding-top: 10px;
+                align-items: center;
+                gap: 25px;
+                
+
+                .profilePic{
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                    background: #aca1a1;
+                    background-size: cover;
+                }
+                
+                .proflieCtnr{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                    align-items: center;
+
+                    .profileName{
+                        width: 60%;
+                        padding: 8px 8px;
+                        background: #aca1a1;
+                    }
+                    .profileUserName{
+                        width: 40%;
+                        padding: 4px 8px;
+                        background: #aca1a1;
+    
+                    }
+                }
+
+                .linkCtnr{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    align-items: center;
+
+                    button{
+                        width: 100%;
+                        padding: 6px 30px;
+                        border-radius: 8px;
+                        color: white;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 20px;
+
+                        &:disabled{
+                            padding: 16px 30px;
+                            background: #726c6c65;
+                        }
+                    }
+
+                    .gitHubBtn{
+                        background: #2e2c2c;
+                    }
+                    .youTubeBtn{
+                        background: #FF0000;
+                    }
+                    .linkedInBtn{
+                        background: #2885ff;
+                    }
+                    .whatsAppBtn{
+                        background: #25D366;
+                    }
+                    .facebookBtn{
+                        background: #4267B2;
+                    }
+                    .twitterBtn{
+                        background: #1DA1F2;
+                    }
+                }
+            }
+        }
+    }
+}
