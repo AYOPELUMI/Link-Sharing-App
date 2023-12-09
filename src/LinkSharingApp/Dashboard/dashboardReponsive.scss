@@ -1,5 +1,20 @@
 @import "../assets/mobileDesign.scss";
 
 .dashboardCtnr{
-    padding-top: 80px;
+    padding-top: 120px;
+
+    @include sm{
+        padding: 20px;
+        padding-top: 120px;
+    }
+
+}
+.footerDiv{
+    @include lt-sm {
+        padding-bottom: 30px;
+        .saveBtn{
+            width: 100%;
+            padding: 12px 40px;
+        }
+    }
 }

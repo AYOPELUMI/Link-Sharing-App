@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
  export const UserContext = createContext({
     user:{
         linkArray:[],
-        user:{
+        profile:{
             FirstName:"",
             LastName:"",
             Email:""
@@ -16,11 +16,11 @@ import ReactDOM from "react-dom/client";
 export const ProfileDetails = (props) => {
     const [user, setUser] = useState({
         linkArray:[],
-        user:{
+        profile:{
             FirstName:"",
             LastName:"",
             Email:""
-        }
+        },
     })
 
     const value = useMemo(() => (

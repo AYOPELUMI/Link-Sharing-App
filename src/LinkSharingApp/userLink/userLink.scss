@@ -1,19 +1,20 @@
 .createLinkContainer{
     width: 60%;
-    height: 100%;
+    height: 600px;
     overflow: scroll;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid black;
     gap: 15px;
+    padding-bottom: 30px;
 
     span{
         text-align: left;
+        color: #000;
         h3{
             font-size: 24px;
-            line-height: 24px
-            ;
+            line-height: 24px;
         }
     }
     .addNewLinkBtn{
@@ -22,6 +23,9 @@
         outline: none;
         padding: 8px 40px;
         background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: #623afc;
 
     }

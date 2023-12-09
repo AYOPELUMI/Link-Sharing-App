@@ -1,22 +1,27 @@
 .mobileView{
     width: 40%;
-    min-height: 400px;
+    height: 600px;
     display: flex;
     justify-content: center;
     background: white;
+    transition: all 0.4s ease;
 
     .phoneOuterCase{
         width: 300px;
-        height: 100%;
         border: 1px solid #000;
         border-radius: 58px;
         padding: 8px;
+        overflow: hidden;
+        background: white;
+        z-index: 20;
         
         .phoneInnerCase{
             height: 100%;
             border: 1px solid #000;
             border-radius: 58px;
             position: relative;
+            z-index: 20;
+            background: white;
 
             .mobileFrontCamera{
                 position: absolute;
@@ -28,7 +33,8 @@
                 padding-bottom: 0.3em;
                 box-sizing: border-box;
                 margin-top: -1px;
-                z-index: 9;
+                z-index: 21;
+                background: white;
                 border: 1px solid black;
                 border-top: 2px solid white;
             }
@@ -36,83 +42,89 @@
             .mobileScreen{
                 width: 100%;
                 height: 100%;
-                display: flex;
-                flex-direction: column;
-                border-radius: inherit;
-                padding-top: 50px;
-                align-items: center;
-                gap: 25px;
+                overflow: scroll;
+                overflow-x: hidden;
 
-                .profilePic{
-                    width: 200px;
-                    height: 200px;
-                    border-radius: 50%;
-                    background: #aca1a1;
-                    background-size: cover;
-                }
-                
-                .proflieCtnr{
-                    width: 100%;
+                .mainScreen{
                     display: flex;
                     flex-direction: column;
-                    gap: 6px;
+                    border-radius: inherit;
+                    padding: 20px;
+                    padding-top: 50px;
                     align-items: center;
+                    gap: 25px;
+                    
 
-                    .profileName{
-                        width: 60%;
-                        padding: 8px 8px;
+                    .profilePic{
+                        width: 200px;
+                        height: 200px;
+                        border-radius: 50%;
                         background: #aca1a1;
+                        background-size: cover;
                     }
-                    .profileUserName{
-                        width: 40%;
-                        padding: 4px 8px;
-                        background: #aca1a1;
-    
-                    }
-                }
-
-                .linkCtnr{
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    align-items: center;
-
-                    button{
-                        width: 80%;
-                        padding: 6px 30px;
-                        border-radius: 8px;
-                        color: white;
+                    
+                    .proflieCtnr{
+                        width: 100%;
                         display: flex;
-                        justify-content: center;
+                        flex-direction: column;
+                        gap: 6px;
                         align-items: center;
-                        gap: 20px;
 
-                        &:disabled{
-                            padding: 16px 30px;
-                            background: #726c6c65;
+                        .profileName{
+                            width: 60%;
+                            padding: 8px 8px;
+                            background: #aca1a1;
+                        }
+                        .profileUserName{
+                            width: 40%;
+                            padding: 4px 8px;
+                            background: #aca1a1;
+        
                         }
                     }
 
-                    .gitHubBtn{
-                        background: #2e2c2c;
-                    }
-                    .youTubeBtn{
-                        background: #FF0000;
-                    }
-                    .linkedInBtn{
-                        background: #2885ff;
-                    }
-                    .whatsAppBtn{
-                        background: #25D366;
-                    }
-                    .facebookBtn{
-                        background: #4267B2;
-                    }
-                    .twitterBtn{
-                        background: #1DA1F2;
-                    }
+                    .linkCtnr{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        align-items: center;
 
+                        button{
+                            width: 100%;
+                            padding: 6px 30px;
+                            border-radius: 8px;
+                            color: white;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 20px;
+
+                            &:disabled{
+                                padding: 16px 30px;
+                                background: #726c6c65;
+                            }
+                        }
+
+                        .gitHubBtn{
+                            background: #2e2c2c;
+                        }
+                        .youTubeBtn{
+                            background: #FF0000;
+                        }
+                        .linkedInBtn{
+                            background: #2885ff;
+                        }
+                        .whatsAppBtn{
+                            background: #25D366;
+                        }
+                        .facebookBtn{
+                            background: #4267B2;
+                        }
+                        .twitterBtn{
+                            background: #1DA1F2;
+                        }
+                    }
                 }
             }
         }

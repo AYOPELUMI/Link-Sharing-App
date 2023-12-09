@@ -1,0 +1,21 @@
+@import "../assets/mobileDesign.scss";
+
+.linkCtnr{
+
+    @include sm{
+        header{
+            padding: 12px 12px;
+        }
+    }
+    @include lt-sm{
+        margin-top: 10px;
+        width: 90%;
+        .createLinkDiv{
+            span{
+                padding: 1px;
+                text-align: left;
+                font-size: 14px;
+            }
+        }
+    }
+}

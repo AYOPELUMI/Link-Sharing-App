@@ -5,4 +5,39 @@
     @include xs{
         width: 100%;
     }
+    @include sm{
+        width: 100%;
+    }
+    @include lt-sm{
+        align-items: center;
+        height: fit-content;
+        border: none;
+        .addNewLinkBtn{
+            margin-top: 14px;
+            width: 80%;
+            font-size: 15px;
+            padding: 10px 40px;
+        }
+        span{
+            padding: 20px;
+            text-align: center;
+
+            p{
+                width: 80%;
+                margin-top: 8px;
+                align-self: center;
+            }
+        }
+        header{
+            span{
+                padding: 3px;
+                font-size: 13px;
+            }
+            .removeBtn{
+                width: 70px;
+                font-size: 13px;
+                padding: 3px;
+            }
+        }
+    }
 }

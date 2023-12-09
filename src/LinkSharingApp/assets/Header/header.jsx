@@ -4,6 +4,7 @@ import "./HeaderReponsive.scss"
 import { UserContext } from '../profileDetails/ProfileDetails'
 import {PiUserCircleFill} from "react-icons/pi"
 import { GoLink } from "react-icons/go";
+import { BsEyeFill } from "react-icons/bs"
 
 export function Header(props) {
     const [showLink, setShowLink] = useState(false)
@@ -23,6 +24,12 @@ export function Header(props) {
         setUser(userClone)
     }
 
+    const handleShowPreviewPage = () => {
+        userClone.showPreviewPage= true;
+        setUser(userClone)
+        console.log(userClone)
+    }
+
     return (
         <header>
             <div>
@@ -32,7 +39,7 @@ export function Header(props) {
                 <a onClick={handleShowLink} className={showLink ? "active" : undefined}><GoLink /><p>Links</p></a>
                 <a onClick={handleShowProfile} className={showLink ? undefined : "active"}><PiUserCircleFill /><p>Profile Details</p></a>
             </div>
-            <a>Preview</a>
+            <a onClick={handleShowPreviewPage}> <p>Preview</p> <BsEyeFill /></a>
         </header>
     )
 }
