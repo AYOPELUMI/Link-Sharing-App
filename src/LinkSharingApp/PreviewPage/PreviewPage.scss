@@ -5,7 +5,7 @@
     height: 100vh;
 
     .topView{
-    flex: 3;
+    height: 300px;
     display: flex;
     background: #623afc;
     border-bottom-right-radius: 30px;
@@ -41,20 +41,22 @@
     }
     }
     .bottomView{
-        flex: 7;
+        height: 700px;
         display: flex;
         align-items: center;
         justify-content: center;
 
         .mobileScreen{
-            margin-top: -300px;
+            margin-top: -191px;
             padding: 20px;
             height: 500px;
             width: 300px;
+            border: 1px solid #ddcbcb;
             box-shadow: 2px 2px 4px 2px #d5d5d7;
             background: white;
             border-radius: 20px;
             transition: all 0.3s ease;
+            overflow: scroll;
 
             .mainScreen{
                 display: flex;
