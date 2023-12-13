@@ -12,8 +12,9 @@
 .footerDiv{
     @include lt-sm {
         padding-bottom: 30px;
+        justify-content: center;
         .saveBtn{
-            width: 100%;
+            width: 90%;
             padding: 12px 40px;
         }
     }
