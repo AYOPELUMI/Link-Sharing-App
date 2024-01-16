@@ -7,6 +7,7 @@ import "./FormInput.scss"
 export function FormInput (props) {
 	const{
 		type,
+		inputMode,
 		className,
 		onChange,
 		placeHolder,
@@ -27,8 +28,15 @@ export function FormInput (props) {
 	let style = {}
 
 	const handleOnFocus = (e) =>{
-		setFocusBoolean(true)
-		setDivClickBoolean(true)
+		style={
+			fontSize: value  || type=="date"? "12px" : null,
+			transform:  value || type=="date"? "translateY(-50px)" : "translateY(-160%)",
+			zIndex : value || type=="date"? "2" : "1",
+			top: value || type=="date"? '52px' : '55px',
+			left : value  || type=="date"? "14px" :"25px",
+			color: className == "error" ? "red" : undefined,
+			fontWeight: value || type=="date"? "bold" : undefined
+		}
 	}
 	const handleDivClick =(e) => {
 		setDivClickBoolean(true)
@@ -43,12 +51,13 @@ export function FormInput (props) {
 	}
 
 		style={
-			fontSize: value ? "12px" : null,
-			transform:  value ? "translateY(-50px)" : "translateY(-160%)",
-			zIndex : value ? "2" : "1",
-			top: value? '52px' : '55px',
-			left : value ? "12px" :"15px",
-			color: className == "error" ? "red" : undefined
+			fontSize: value || type=="date"? "12px" : null,
+			transform:  value || type=="date"? "translateY(-50px)" : "translateY(-160%)",
+			zIndex : value || type=="date"? "2" : "1",
+			top: value || type=="date"? '52px' : '55px',
+			left : value || type=="date"? "14px" :"25px",
+			color: className == "error" ? "red" : undefined,
+			fontWeight: value || type=="date"? "bold" : undefined
 		}
 
 	return(
@@ -65,6 +74,7 @@ export function FormInput (props) {
 					<input 
 						type={showPassword ? "text" : type} 
 						required={required ? true :false }  
+						inputMode={inputMode}
 						ref={inputRef} 
 						onFocus={span ? null : handleOnFocus} 
 						className={className ? className : undefined} 
