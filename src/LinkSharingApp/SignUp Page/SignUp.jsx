@@ -123,7 +123,7 @@ export const SignUp = () => {
                   <Button className={/[A-Z]/.test(userDetails.password) ? "active" : null }displayWord ="1 Capital Letter" disabled={true}/>
                   <Button className={/[a-z]/.test(userDetails.password)? "active" : null } displayWord="1 Small Latter" disabled={true} />
                   <Button className={/[0-9]/.test(userDetails.password) ? "active" : null } displayWord="1 Numeric" disabled={true} />
-                  <Button className={/[-!$%^&*()_+|~=`{}\[\]:\/;<>?,.@#]/.test(userDetails) ? "active" : null } displayWord="1 Special Character" disabled={true} />
+                  <Button className={/[-!$%^&*()_+|~=`{}\[\]:\/;<>?,.@#]/.test(userDetails.password) ? "active" : null } displayWord="1 Special Character" disabled={true} />
                   <Button className={userDetails.password.length>=8 ? "active" : null } displayWord="minimum of 8" disabled={true} />
                 </div>
 
