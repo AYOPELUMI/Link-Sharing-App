@@ -5,16 +5,18 @@
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid black;
     gap: 15px;
+    padding: 30px;
     padding-bottom: 30px;
+    background: white;
 
     span{
         text-align: left;
         color: #000;
         h3{
-            font-size: 24px;
-            line-height: 24px;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 32px;
         }
     }
     .addNewLinkBtn{

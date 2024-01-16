@@ -29,32 +29,7 @@ export function Input (props) {
 	const [showPassword, setShowPassword] = useState(false)
 	let style = {}
 
-	// useEffect(() => {
-	// 	if (propValue) {
-	// 		if (type=="checkbox") {
-	// 			setCheckedValue(propValue)
-	// 		}
-	// 		else{
-	// 			setValue(propValue)
-	// 			setFocusBoolean(true)
-	// 		}
-	// 	}
-	// },[propValue])
-	// const handleChange = (e) => {
-	
-	// 	if (type == "checkbox" || span) {
-	// 		let value = e.target.checked
-	// 		setCheckedValue(value)
-	// 		checkedValueFunction([index,value])
-	// 	}
-	// 	else{
-	// 		if (updateState) {
-	// 			updateState()
-	// 		}
-	// 		let value = e.target.value
-	// 		setValue(value)
-	// 	}
-	// }
+
 
 	const handleOnFocus = (e) =>{
 		// setFocusBoolean(true)
@@ -78,17 +53,7 @@ export function Input (props) {
 		// 	// setDivClickBoolean(true)
 		// }
 	}
-	// useEffect(() =>{
-	// 	if (inputValue) {
-	// 		setFocusBoolean(true)
-	// 		setDivClickBoolean(true)
-	// 	}
-	// 	else{
-	// 		setFocusBoolean(false)
-	// 		setDivClickBoolean(false)
-	// 	}
 
-	// },[inputValue])
 	const handleShowPassword = () =>{
 		setShowPassword(!showPassword)
 		console.log("i pass here")

@@ -22,12 +22,12 @@ export function LinkOptions(props) {
     const [iconIndex, setIconIndex] = useState(0)
     
     let userClone ={...user}
-    console.log({user})
-    console.log({listArray})
-    console.log({linkObject})
-    // console.log({value},{propsIndex})
-    console.log({index})
-    console.log({propsIndex})
+    // console.log({user})
+    // console.log({listArray})
+    // console.log({linkObject})
+    // // console.log({value},{propsIndex})
+    // console.log({index})
+    // console.log({propsIndex})
  
     const listOptions =[
         {
@@ -61,7 +61,7 @@ export function LinkOptions(props) {
             link:"www.youtube.com/"
         }
     ]
-    console.log({listOptions})
+    // console.log({listOptions})
 
 // useEffect(() => {
 //     let newIndex = userClone.linkArray.findIndex(obj => obj.valueIndex == index)
@@ -73,10 +73,10 @@ export function LinkOptions(props) {
     useEffect(() => {
 
         let userClone = [...listArray]
-        console.log({userClone})
-        console.log({linkObject})
+        // console.log({userClone})
+        // console.log({linkObject})
         let indexToUpdate = listArray.findIndex(obj => obj.index == propsIndex)
-        console.log(listArray[indexToUpdate])
+        // console.log(listArray[indexToUpdate])
         setLinkObject(listArray[indexToUpdate])
 
     //     userClone.linkArray = userClone.linkArray.push(linkObject)
@@ -94,16 +94,16 @@ export function LinkOptions(props) {
        let iconIndex = 0 
 
         for (var i = 0; i < listOptions.length; i++) {
-            console.log({userClone})
-            console.log(listOptions[i])
+            // console.log({userClone})
+            // console.log(listOptions[i])
              if(linkObject.value ==listOptions[i].name){
-                console.log({i})
+                // console.log({i})
                 iconIndex = i
                 break;
              }
         }
         // console.log({newIndex})
-        console.log({iconIndex})
+        // console.log({iconIndex})
         setIconIndex(iconIndex)
         let value =event.target.getAttribute("value")
         let index = Number(event.target.getAttribute("index"))

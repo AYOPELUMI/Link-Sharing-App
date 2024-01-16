@@ -17,26 +17,43 @@ export function CreatedLink(props) {
         UpdatingIndex
     } = props
 
-    console.log({index})
+    // console.log({index})
     const {user, setUser} = useContext(UserContext)
     const [linkObject, setLinkObject] = useState({});
+    const [value, setValue] = useState("")
+
     // console.log({user})
-    console.log({listArray})
+    // console.log({listArray})
 
     let linkindex = listArray.findIndex(obj => obj.index == index)
-    console.log(listArray[linkindex])
-    console.log(listArray[linkindex].value)
+    
+    // console.log(listArray[linkindex])
+    // console.log(listArray[linkindex].value)
+    
+    const [link,setLink] = useState(listArray[linkindex].link)
+
+    const handleLinkChange = () => {
+    
+        let value = event.target.value
+        console.log({value})
+        if (0 == value.search(listArray[linkindex].link)) {
+
+            setValue(value)
+        }
+
+    }
+    
+    console.log({value})
+    
+
+    useEffect(() => {
+        setValue(listArray[linkindex].link)
+        console.log(listArray[linkindex])
+    },[listArray])
+
+    console.log({link})
     
     const removeCreatedLink = () => {
-    //     console.log({listArray})
-    //    let listArrayClone =[...listArray]
-        // console.log({userClone})
-        // console.log(JSON.stringify(user))
-        // userClone = JSON.stringify(userClone)
-        // console.log(userClone)
-        // userClone = JSON.parse(userClone)
-        // console.log({userClone})
-
         DeleteIndex(index)
     }
 
@@ -56,8 +73,9 @@ export function CreatedLink(props) {
                     <Input 
                         labelFor={"Link"}
                         placeHolder={<GoLink />}
-                        value= {listArray[linkindex].value != null && listArray[linkindex].value != undefined ? listArray[linkindex].link+user.profile.FirstName + user.profile.LastName : ""}
-                        disabled={true}
+                        value= {listArray[linkindex].value != null && listArray[linkindex].value != undefined ?value : ""}
+                        disabled={false}
+                        handleChange={handleLinkChange}
                     />
                 </div>
             </div>

@@ -85,7 +85,7 @@ export function MobilePreview(props) {
                                             key={item.value ? item.value+index+"Btn" : item.index} 
                                             className={item.value ? Capitalize(item.value)+"Btn": null}
                                             disabled ={item.value ? false:true}
-                                            displayWord={item.value ? <>{listOptions[item.valueIndex].icon} <span>{item.value}</span> <RiArrowRightFill /></>:null}
+                                            displayWord={item.value ? <><div>{listOptions[item.valueIndex].icon} <span>{item.value}</span></div> <RiArrowRightFill /></>:null}
                                         />
                                     ) )}
                                 </div>

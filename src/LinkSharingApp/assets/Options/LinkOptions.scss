@@ -6,21 +6,24 @@
     gap: 5px;
 
     .selectBtn{
-        width: 90%;
+        width: 100%;
         border-radius: 5px;
         justify-content: center;
-        background: gainsboro;
+        background: white;
         color: black;
         position: relative;
         font-size: 15px;
-        margin-right: 20px;
-        padding: 5px 20px;
+        padding: 10px 20px;
         display: flex;
         align-items: center;
         justify-content: space-around;
 
         span{
-            margin-right: 240px;
+            margin-left: 20px;
+            margin-right: 400px;
+        }
+        svg{
+            margin-left: auto;
         }
 
 
@@ -40,13 +43,16 @@
                     justify-content: start;
                     align-items: center;
                     z-index: 4;
-                    padding: 4px 25px;
+                    padding: 10px 20px;
                     gap: 20px;
                     transition: all 0.35s ease;
                     
                     &:hover, &:focus,&:active{
                         background: #1c79f1;
                         color: white;
+                    }
+                    svg{
+                        margin: 0;
                     }
                 }
         }

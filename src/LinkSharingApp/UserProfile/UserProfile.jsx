@@ -90,6 +90,13 @@ export const UserProfile = (props) => {
                 spanBg={profile.imagePreview ? profile.imagePreview : null}
                 labelClassName="labelImage"
             />
+            <div>
+                <label>
+                    <input type="file"
+                        accept='image/'
+                        />
+                </label>
+            </div>
             <Input
                 labelFor="First Name"
                 required={true}

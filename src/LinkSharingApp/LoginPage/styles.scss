@@ -1,0 +1,57 @@
+.mainCntr{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    padding: 50px;
+    background: #acb8c5;
+
+    .loginComponent{
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        padding:0 20px;
+        background: white;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        header{
+            position: relative;
+            width: 100%;
+        }
+        span{
+            font-size: 20px;
+            width: 100%;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 17px;
+            .formInput{
+                width: 100%;
+            }
+            .btnLogin{
+                padding: 12px 40px;
+                font-size: 15px;
+                background: #18a5eb;
+                width: 130px;
+                color: #fff;
+            }
+            a{
+                text-decoration: none;
+                font-size: 13px;
+                margin-top: -10px;
+            }
+        }
+    }
+    .displayComponent{
+        flex: 3;
+        background-image: linear-gradient(
+            180deg,
+            #18a5eb,
+            #2ab4f5
+
+        );
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+}

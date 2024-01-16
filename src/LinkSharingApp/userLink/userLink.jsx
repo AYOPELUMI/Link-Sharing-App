@@ -10,9 +10,9 @@ export function UserLink(props) {
   const {
     submitUserLinkDetails
   } = props
-  const [listArray, setListArray] = useState([])
   const [index, setIndex] = useState(0)
   const {user, setUser} = useContext(UserContext)
+  const [listArray, setListArray] = useState(user.linkArray)
 
   let userClone = {...user}
   let displayListArray =[]

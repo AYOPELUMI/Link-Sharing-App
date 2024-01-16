@@ -1,12 +1,11 @@
 .userProfileCtnr{
     width: 60%;
-    height: 100%;
+    height: 600px;
     overflow: scroll;
     overflow-x: hidden;
-    padding: 10px 15px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid black;
     gap: 15px;
     background: white;
     color: #000;
@@ -16,6 +15,12 @@
         flex-direction: column;
         gap: 10px;
         align-items: start;
+
+        h3{
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 32px;
+        }
     }
 
     .userForm{
@@ -43,15 +48,15 @@
             color: #000;
             span{
                 width: 40%;
-                font-size: 12px;
+                font-size: 15px;
             }
             input{
                 width: 100%;
                 border: 1px solid #726c6c65;
 
-                &:active, &:focus, &:hover{
+                &:active, &:focus{
                     border: 1px solid #623afc;
-                    box-shadow: 1px 3px 9px 0px #8f8484;
+                    box-shadow: 5px 2px 7px 7px rgb(45 9 187 / 7%);
 
                 }
             }

@@ -2,7 +2,7 @@
 			width: 78%;
 			border: 1px solid #DFE3FA;
 			outline: none;
-			padding: 4px 14px;
+			padding: 10px 14px;
 			border-radius: 4px;
 			font-size: 15px;
 			cursor: auto;
@@ -45,7 +45,9 @@
 			}
 			div{
 				display: flex;
-				width: 90%;
+				width: 100%;
+				align-items: center;
+
 				.placeHolder{
 					width :30px;
 					height : 30px;

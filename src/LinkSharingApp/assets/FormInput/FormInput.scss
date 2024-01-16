@@ -1,0 +1,64 @@
+		input{
+			width: 100%;
+			border: 1px solid black;
+			outline: none;
+			padding: 22px 14px;
+			padding-bottom: 8px;
+			border-radius: 4px;
+			font-size: 14px;
+			font-family: Memoirs;
+			letter-spacing: 0.8px;
+			cursor: auto;
+			z-index: 1;
+			font-weight: normal;
+			color: black;
+			background:inherit;
+
+			&:active, &:focus{
+				border:2px solid blue;
+			}
+		}
+		span{
+			cursor: pointer;
+		}
+		.placeHolder{
+			width :fit-content;
+			height : fit-content;
+			position : absolute;
+			background:  inherit;
+			font-size: 14px;
+			font-family: Memoirs;
+			letter-spacing: 0.25px;
+			color: black;
+			opacity: 1;
+			cursor: auto;
+		    transition: all .2s ease-in-out;
+
+
+		}
+		.errorMsg{
+			width: fit-content;
+			height: fit-content;
+			background: transparent;
+			padding: 2px;
+			color: red;
+			position: absolute;
+			top: -5px;
+			left: 50%;
+			font-size: 12px;
+			font-weight: bold;
+
+		}
+		label{
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+		}
+		.passWordIcon{
+			position: absolute;
+			left: 90%;
+			cursor: pointer;
+			transform: translateY(100%);
+			z-index: 3;
+			color: black;		}
