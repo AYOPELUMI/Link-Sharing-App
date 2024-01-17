@@ -45,7 +45,7 @@ export const SignUp = () => {
     let value = e.target.value
     let numberValue =Number(value)
     console.log({numberValue})
-    if(numberValue){
+    if(numberValue || numberValue == 0){
       getUserDetails("phoneNumber",value)
     }
     else{
