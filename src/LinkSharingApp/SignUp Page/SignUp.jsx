@@ -4,10 +4,12 @@ import { FormInput } from '../assets/FormInput/FormInput'
 import { Button } from '../assets/Button/Button'
 import toast, { Toaster } from 'react-hot-toast'
 import "./styles.scss"
+import { CheckBox } from '../assets/CheckBox/CheckBox'
 
 export const SignUp = () => {
 
   const [userDetails, setUserDetails] = useState({password:"",confirmPassword: ""})
+  
   function getUserDetails (nameValue,value) {
 
       setUserDetails({
@@ -16,9 +18,23 @@ export const SignUp = () => {
       })
   }
 
+  function IsAllPresent(str) {
+		let pattern = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[-+_!@#$%^&*,.?]).+$")
+
+		if (pattern.test(str)) {
+			return false
+		}
+		else{
+			return true
+		}
+	}
   const handleFullName = (e) =>{
     let value = e.target.value
     getUserDetails("fullName",value)
+  }
+  const handleUserName =(e) =>{
+    let value = e.target.value
+    getUserDetails("userName",value)
   }
   console.log({userDetails})
   const handleEmail = (e) =>{
@@ -49,29 +65,27 @@ export const SignUp = () => {
     getUserDetails("confirmPassword",value)
   }
 
-
-
 	const handlePasswordValidity = () =>{
     event.preventDefault()
     let password = userDetails.password
     let confirmPassword = userDetails.confirmPassword
 
-		if (password == "") {
-      toast.error("Please enter your password")
-			console.log("i am in the of statement")
-			// setPasswordErrorMsg("Please enter your password")
-		}
-		if (confirmPassword == "") {
-      toast.error("confirm your password")
-			// setConfirmPasswordErrorMsg("confirm your password")
-			return
-		}
+    if(password !="" || confirmPassword != ""){	
 
-		if (password != confirmPassword){
-      toast.error("password does not conform")
-			// setConfirmPasswordErrorMsg("password don't not conform ")
-			// setConfirmPasswordValidity(true)
-		}
+      if (password != confirmPassword){
+        toast.error("password does not conform")
+        // setConfirmPasswordErrorMsg("password don't not conform ")
+        // setConfirmPasswordValidity(true)
+        return
+      }
+      if(IsAllPresent(password) && IsAllPresent(confirmPassword)){
+          console.log(true)
+      }
+    }
+    else{
+      console.log(false)
+      toast.error("choose a gender please")
+    }
 	}
 
   return (
@@ -87,24 +101,35 @@ export const SignUp = () => {
                 {/* <NavLink>sign up with Google</NavLink>
                 <NavLink>Sign Up eith facebook</NavLink> */}
               </div>
-              <form onSubmit = {handlePasswordValidity}>
+              <form action="" onSubmit = {handlePasswordValidity}>
                 <FormInput 
                   type="text" 
                   placeHolder="Full Name"
                   onChange={handleFullName}
                   value ={userDetails.fullName} 
+                  required={true}
                 />
+                <FormInput 
+                  type="text" 
+                  placeHolder="username"
+                  onChange={handleUserName}
+                  value ={userDetails.userName} 
+                  required={true}
+                />
+                
                 <FormInput 
                   type="email" 
                   placeHolder = "Email Address"
                   onChange={handleEmail}
                   value={userDetails.email}
+                  required={true}
                 />
                 <FormInput
                   type="date"
                   placeHolder="Date of Birth"
                   onChange={handleDoB}
                   value={userDetails.dob}
+                  required={true}
                 />
                 <FormInput 
                   type="text"
@@ -112,13 +137,20 @@ export const SignUp = () => {
                   placeHolder="Phone Number"
                   onChange={handlePhoneNumber}
                   value={userDetails.phoneNumber}
+                  required={true}
                 />
+                <label className='genderLabel' >
+                  <span>Gender</span>
+                  <CheckBox name="gender" displayWord="Male" required={true}/>
+                  <CheckBox displayWord="Female" name="gender" required={true}/>
+                </label>
                 <div className="passwordCntr">
                   <FormInput 
                     type="password" 
                     placeHolder ="password"
                     onChange={handlePassword}
                     value={userDetails.password}
+                    required={true}
                   />
                   <Button className={/[A-Z]/.test(userDetails.password) ? "active" : null }displayWord ="1 Capital Letter" disabled={true}/>
                   <Button className={/[a-z]/.test(userDetails.password)? "active" : null } displayWord="1 Small Latter" disabled={true} />
@@ -133,6 +165,7 @@ export const SignUp = () => {
                     placeHolder ="confirm password"
                     onChange={handleConfimPassword}
                     value={userDetails.confirmPassword}
+                    required={true}
                     />
                     <Button className={/[A-Z]/.test(userDetails.confirmPassword) ? "active" : null }displayWord ="1 Capital Letter" disabled={true}/>
                     <Button className={/[a-z]/.test(userDetails.confirmPassword) ? "active" : null } displayWord="1 Small Latter" disabled={true} />
@@ -141,10 +174,12 @@ export const SignUp = () => {
                     <Button className={userDetails.confirmPassword.length >= 8 ? "active" : null } displayWord="minimum of 8" disabled={true} />
                 </div>
 
-                 <span>
-                {/*Already have an account <NavLink>{"Log in"}</NavLink> */}
-                </span>
-                <Button type="submit" displayWord="Sign Up"/>
+
+
+                 {/* <span>
+                {/*Already have an account <NavLink>{"Log in"}</NavLink> 
+                </span> */}
+                <Button type="submit" className="submitBtn" displayWord="Sign Up"/>
               </form>
 
             </div>

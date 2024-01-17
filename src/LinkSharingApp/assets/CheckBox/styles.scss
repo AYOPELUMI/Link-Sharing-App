@@ -1,0 +1,27 @@
+label{
+    width: 100%;
+    height: 100%;
+    gap: 1px;
+    
+    input[type= "radio"]{
+        display: none;
+
+        &:checked{
+            &+ span{
+                background-color: #696dea;
+                color: white;
+            }
+        }
+    }
+    .wrapper{
+        background-color: #cec7c7;
+        border: none;
+        border-radius: 10px;
+        width: 90%;
+        padding: 6px 20px;
+        font-size: 14px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+    }
+}

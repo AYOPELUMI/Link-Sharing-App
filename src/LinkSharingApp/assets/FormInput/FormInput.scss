@@ -2,7 +2,7 @@
 			width: 100%;
 			border: 1px solid black;
 			outline: none;
-			padding: 22px 14px;
+			padding: 29px 14px;
 			padding-bottom: 8px;
 			border-radius: 4px;
 			font-size: 14px;
@@ -52,13 +52,14 @@
 		label{
 			position: relative;
 			display: flex;
-			flex-direction: column;
 			gap: 4px;
+			height: 100%;
+			align-items: end;
 		}
 		.passWordIcon{
 			position: absolute;
 			left: 90%;
 			cursor: pointer;
-			transform: translateY(100%);
+			transform: translateY(-97%);
 			z-index: 3;
 			color: black;		}

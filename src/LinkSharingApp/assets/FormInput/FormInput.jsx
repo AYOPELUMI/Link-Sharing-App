@@ -32,7 +32,7 @@ export function FormInput (props) {
 			fontSize: value  || type=="date"? "12px" : null,
 			transform:  value || type=="date"? "translateY(-50px)" : "translateY(-160%)",
 			zIndex : value || type=="date"? "2" : "1",
-			top: value || type=="date"? '52px' : '55px',
+			top: value || type=="date"? '60px' : "64px",
 			left : value  || type=="date"? "14px" :"25px",
 			color: className == "error" ? "red" : undefined,
 			fontWeight: value || type=="date"? "bold" : undefined
@@ -54,7 +54,7 @@ export function FormInput (props) {
 			fontSize: value || type=="date"? "12px" : null,
 			transform:  value || type=="date"? "translateY(-50px)" : "translateY(-160%)",
 			zIndex : value || type=="date"? "2" : "1",
-			top: value || type=="date"? '52px' : '55px',
+			top: value || type=="date"? '60px' : '64px',
 			left : value || type=="date"? "14px" :"25px",
 			color: className == "error" ? "red" : undefined,
 			fontWeight: value || type=="date"? "bold" : undefined
