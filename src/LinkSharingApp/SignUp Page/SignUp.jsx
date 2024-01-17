@@ -133,7 +133,7 @@ export const SignUp = () => {
                 />
                 <FormInput 
                   type="text"
-                  inputMode="decimal"
+                  inputMode="numeric"
                   placeHolder="Phone Number"
                   onChange={handlePhoneNumber}
                   value={userDetails.phoneNumber}
