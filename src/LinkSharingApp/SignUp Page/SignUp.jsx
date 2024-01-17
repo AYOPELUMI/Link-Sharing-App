@@ -147,7 +147,7 @@ export const SignUp = () => {
                 <div className="passwordCntr">
                   <FormInput 
                     type="password" 
-                    placeHolder ="password"
+                    placeHolder ="Password"
                     onChange={handlePassword}
                     value={userDetails.password}
                     required={true}
@@ -162,7 +162,7 @@ export const SignUp = () => {
                 <div  className="passwordCntr">
                 <FormInput 
                     type="password" 
-                    placeHolder ="confirm password"
+                    placeHolder ="Confirm Password"
                     onChange={handleConfimPassword}
                     value={userDetails.confirmPassword}
                     required={true}
