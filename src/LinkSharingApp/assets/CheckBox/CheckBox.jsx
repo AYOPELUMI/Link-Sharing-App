@@ -14,7 +14,7 @@ export const CheckBox = (props) => {
   return (
     <>
         <label>
-            <input type="radio" checked={isChecked} required={required} name={name}/>
+            <input type="radio" required={required} name={name}/>
             <span className="wrapper" onClick={handleCheck}>
                 {displayWord}
             </span >
