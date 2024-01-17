@@ -111,7 +111,7 @@ export const SignUp = () => {
                 />
                 <FormInput 
                   type="text" 
-                  placeHolder="username"
+                  placeHolder="Username"
                   onChange={handleUserName}
                   value ={userDetails.userName} 
                   required={true}
