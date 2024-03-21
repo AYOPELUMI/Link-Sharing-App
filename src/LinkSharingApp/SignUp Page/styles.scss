@@ -29,10 +29,10 @@
             padding-left: 24px;
             border:transparent;
             background: white;
-            border: 1px solid transparent;
+            border: 2px solid transparent;
             transition: all 0.25s ease;
             &:focus,&:hover{
-                border: 1px solid #696dea;
+                border: 2px solid #696dea;
             }
         }
 
@@ -47,7 +47,7 @@
             .passwordCntr{
                 display: flex;
                 flex-wrap: wrap;
-                gap: 2px;
+                gap: 4spx;
 
                 button{
                     width: fit-content;

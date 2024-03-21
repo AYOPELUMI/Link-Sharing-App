@@ -5,6 +5,7 @@ import { CreatedLink } from '../CreatedLink/CreatedLink'
 import { UserContext } from '../assets/profileDetails/ProfileDetails'
 import "./userLink.scss"
 import "./userLinkReponsive.scss"
+import { CustomFetch } from '../assets/CustomFetch'
 let listArrayClone =[]
 export function UserLink(props) {
   const {
@@ -32,13 +33,9 @@ export function UserLink(props) {
         setIndex(index +1)
   }
   const DeleteIndex = (args) => {
-    let listArrayClone =[...listArray]
+    let listArrayClone =listArray.filter(obj => obj.index != args)
     console.log({args})
-    let indexToDelete = listArrayClone.findIndex(obj => obj.index == args)
-    console.log({indexToDelete})
-    listArrayClone.splice(indexToDelete,1)
-    displayListArray.splice(indexToDelete,1)
-    console.log({displayListArray})
+
     console.log({listArrayClone})
     setListArray(listArrayClone)
   }
@@ -50,19 +47,25 @@ export function UserLink(props) {
     listArrayClone.splice(newIndex,1,newDetails)
     console.log({listArrayClone})
     setListArray(listArrayClone)
+    CustomFetch("/links/create" ,{
+      method: 'POST',
+      headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        Platform: newDetails.value,
+        URL: newDetails.link
+      })
+    }).then(data => data.json())
+    .then((data) =>{
+      console.log({data})
+    })
+    .catch( err => {
+        console.log({err})
+    })
   }
 
-for (let i = 0; i < listArray.length; i++) {
-    const element = <CreatedLink 
-                        key={"link"+i+1} 
-                        displayIndex={i} 
-                        index={listArray[i].index} 
-                        DeleteIndex={DeleteIndex}
-                        listArray={listArray}
-                        UpdatingIndex = {UpdatingIndex}
-                    />
-    displayListArray.push(element)
-}
+
 console.log({listArray})
 
   return (

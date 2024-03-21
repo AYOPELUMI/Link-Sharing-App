@@ -4,11 +4,13 @@ import { Button } from '../assets/Button/Button'
 import toast, { Toaster } from 'react-hot-toast'
 import "./styles.scss"
 import { CustomFetch } from '../assets/CustomFetch'
+import { useNavigate } from 'react-router-dom'
 
 export const LoginPage = () => {
 
     const [email,setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate()
 
     const handleEmailChange = (e) =>{
         let value = e.target.value
@@ -38,6 +40,9 @@ export const LoginPage = () => {
             .then((data) =>{
                 console.log({data})
                 toast.success("login successful")
+                setTimeout(() => {
+                    navigate("/dashboard")
+                }, 2000);
             })
             .catch( err => {
                 console.log({err})

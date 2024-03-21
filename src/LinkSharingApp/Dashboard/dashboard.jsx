@@ -1,4 +1,4 @@
-import React, { useContext,useState } from 'react'
+import React, { useContext,useEffect,useState } from 'react'
 import { Header } from '../assets/Header/header'
 import { UserLink } from '../userLink/userLink'
 import { MobilePreview } from '../assets/MobilePreview/MobilePreview'
@@ -9,13 +9,29 @@ import "./dashboardReponsive.scss"
 import { Button } from '../assets/Button/Button'
 import { PreviewPage } from '../PreviewPage/PreviewPage'
 import { SignUp } from '../SignUp Page/SignUp'
-import {LoginPage} from "../LoginPage/LoginPage"
+import { CustomFetch } from '../assets/CustomFetch'
+
 
 export function Dashboard(props) {
     const{user, setUser} =useContext(UserContext)
     const [profile, setProfile] = useState({});
     const [link, setLink] = useState([]);
     console.log({user})
+
+    useEffect(() => {
+        CustomFetch("/links/list",{
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            }
+          }).then(data => data.json())
+          .then((data) =>{
+              console.log({data})
+          })
+          .catch( err => {
+              console.log({err})
+          })
+    }, [])
 
     const submitUserProfileDetails = (args) => {
         setProfile(args)
@@ -35,25 +51,26 @@ export function Dashboard(props) {
         setUser(userClone)
     }
 
+
+
     return (
-        // <>{
-        //     user.showPreviewPage ? <PreviewPage / >
-        // :<>
-        //     <Header />
-        //     <div className='dashboardCtnr'> 
-        //     <MobilePreview/>
-        //     {
-        //         user.showLink? 
-        //         <UserLink submitUserLinkDetails={submitUserLinkDetails}/> :
-        //         <UserProfile submitUserProfileDetails={submitUserProfileDetails}/>
-        //     }
-        //     </div>
-        //     <div className='footerDiv'>
-        //         <Button type="button" className="saveBtn" displayWord="Save" onClick={updateUser}/>
-        //     </div>
-        // </>
-        // }
-        // </>
-        <SignUp />
+        <>{
+            user.showPreviewPage ? <PreviewPage / >
+        :<>
+            <Header />
+            <div className='dashboardCtnr'> 
+            <MobilePreview/>
+            {
+                user.showLink? 
+                <UserLink submitUserLinkDetails={submitUserLinkDetails}/> :
+                <UserProfile submitUserProfileDetails={submitUserProfileDetails}/>
+            }
+            </div>
+            <div className='footerDiv'>
+                <Button type="button" className="saveBtn" displayWord="Save" onClick={updateUser}/>
+            </div>
+        </>
+        }
+        </>
     )
 }

@@ -4,13 +4,33 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { ProfileDetails } from './LinkSharingApp/assets/profileDetails/ProfileDetails'
 import { Dashboard } from './LinkSharingApp/Dashboard/dashboard'
+import { createBrowserRouter,RouterProvider } from 'react-router-dom'
+import { SignUp } from './LinkSharingApp/SignUp Page/SignUp'
+import { LoginPage } from './LinkSharingApp/LoginPage/LoginPage'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+
+  const router =createBrowserRouter([
+    {
+      path : "/dashboard",
+      element:<Dashboard />
+    },
+    {
+        path : "/",
+        element: <LoginPage />
+    },
+    {
+      path: "/register",
+      element :<SignUp />
+    }
+  ])
 
   return (
     <ProfileDetails>
-    <Dashboard  />
+      <RouterProvider router ={router}>
+
+      </RouterProvider>
     </ProfileDetails>
   )
 }

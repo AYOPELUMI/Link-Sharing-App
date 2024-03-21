@@ -1,14 +1,16 @@
 import React, {useState} from 'react'
-import {NavLink} from "react-router-dom"
+import {NavLink, useNavigate} from "react-router-dom"
 import { FormInput } from '../assets/FormInput/FormInput'
 import { Button } from '../assets/Button/Button'
 import toast, { Toaster } from 'react-hot-toast'
 import "./styles.scss"
 import { CheckBox } from '../assets/CheckBox/CheckBox'
+import { CustomFetch } from '../assets/CustomFetch'
 
 export const SignUp = () => {
 
   const [userDetails, setUserDetails] = useState({password:"",confirmPassword: ""})
+  const navigate =useNavigate()
   
   function getUserDetails (nameValue,value) {
 
@@ -22,10 +24,10 @@ export const SignUp = () => {
 		let pattern = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[-+_!@#$%^&*,.?]).+$")
 
 		if (pattern.test(str)) {
-			return false
+			return true
 		}
 		else{
-			return true
+			return false
 		}
 	}
   const handleFullName = (e) =>{
@@ -80,11 +82,37 @@ export const SignUp = () => {
       }
       if(IsAllPresent(password) && IsAllPresent(confirmPassword)){
           console.log(true)
+
+          CustomFetch("/register",{
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+               email: userDetails.email,
+               password: userDetails.password
+            })
+          }).then(data => data.json())
+          .then((data) =>{
+              console.log({data})
+              toast.success("account created successfully")
+
+              setTimeout(() => {
+                navigate("/login")
+              }, 3000);
+          })
+          .catch( err => {
+              console.log({err})
+          })
+
+      }
+      else{
+        toast.error("invalid Password")
       }
     }
     else{
       console.log(false)
-      toast.error("choose a gender please")
+      toast.error("choose a gender")
     }
 	}
 
